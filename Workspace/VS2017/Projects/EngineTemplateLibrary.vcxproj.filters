@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Public">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Private\Headers">
+      <UniqueIdentifier>{ed8ebcfe-899b-42a2-a466-9e9c20042b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source">
+      <UniqueIdentifier>{865cd6a5-1c4c-4eed-8094-38302055edbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Core">
+      <UniqueIdentifier>{0d6ade20-3f84-4567-aaa3-19613bda53c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\STLExtensions">
+      <UniqueIdentifier>{c1ec7ae8-5f1e-41ed-ab93-bfa19ea8bc5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Public\Core\Platform.h">
+      <Filter>Public\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h">
+      <Filter>Public\STLExtensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp">
+      <Filter>Public\STLExtensions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
+      <Filter>Private\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
