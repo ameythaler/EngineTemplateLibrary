@@ -4,6 +4,7 @@
   <PropertyGroup Label="UserMacros">
     <ETL_Intermediate_Dir>..\..\..\Intermediate</ETL_Intermediate_Dir>
     <ETL_Bin_Dir>..\..\..\Bin</ETL_Bin_Dir>
+    <ETL_Bin_Base>ETL</ETL_Bin_Base>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -13,6 +14,9 @@
     </BuildMacro>
     <BuildMacro Include="ETL_Bin_Dir">
       <Value>$(ETL_Bin_Dir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ETL_Bin_Base">
+      <Value>$(ETL_Bin_Base)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

@@ -92,36 +92,42 @@
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLDebug.props" />
     <Import Project="..\Properties\ETLX86.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLRelease.props" />
     <Import Project="..\Properties\ETLX86.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLDevelopment.props" />
     <Import Project="..\Properties\ETLX86.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLDebug.props" />
     <Import Project="..\Properties\ETLX64.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLRelease.props" />
     <Import Project="..\Properties\ETLX64.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\ETLBase.props" />
     <Import Project="..\Properties\ETLDevelopment.props" />
     <Import Project="..\Properties\ETLX64.props" />
+    <Import Project="..\Properties\ETLCommon.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

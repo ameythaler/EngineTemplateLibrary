@@ -3,6 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <ETL_Build_Config>Development</ETL_Build_Config>
+    <ETL_Bin_Config>_Dev</ETL_Bin_Config>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup>
@@ -13,6 +14,9 @@
   <ItemGroup>
     <BuildMacro Include="ETL_Build_Config">
       <Value>$(ETL_Build_Config)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ETL_Bin_Config">
+      <Value>$(ETL_Bin_Config)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
