@@ -83,11 +83,17 @@
 #endif
 
 // Compatibility
-
 #define ETL_NOEXCEPT noexcept
 
 #if ETL_MSVC && _MSC_VER < 1910
 #define ETL_NOEXCEPT throw()
+#endif
+
+// Unicode
+#define ETL_UNICODE 0
+
+#if defined(_UNICODE) || defined(UNICODE)
+#define ETL_UNICODE 1
 #endif
 
 #if _MSC_VER

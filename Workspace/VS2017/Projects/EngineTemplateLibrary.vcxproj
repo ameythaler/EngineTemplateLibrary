@@ -27,11 +27,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Public\Core\Platform.h" />
+    <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp" />
+    <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

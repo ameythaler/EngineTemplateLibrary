@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Platform.h"
+#include "Utility/Platform.h"
 
 #include <string>
 #include <vector>
