@@ -1,5 +1,4 @@
-#ifndef TYPES_H_
-#define TYPES_H_
+#pragma once
 
 #include "Utility/Platform.h"
 #include "STLExtensions/extended_string.h"
@@ -11,7 +10,7 @@
 
 namespace ETL
 {
-namespace Core
+namespace Utility
 {
 #if ETL_32BIT // TODO: Need a 64 and 32 bit flag because this isn't Mac specific.
 	typedef uint32_t PtrSize;
@@ -21,7 +20,7 @@ namespace Core
 
 	typedef STLExtensions::extended_string<char> MbString;
 	typedef STLExtensions::extended_string<wchar_t> WideString;
-	typedef STLExtensions::extended_string<char16_t> Wide16String;
+	typedef std::basic_string<char16_t> Wide16String;
 	typedef std::basic_stringstream<char> MbStringStream;
 	typedef std::basic_stringstream<wchar_t> WideStringStream;
 
@@ -37,8 +36,25 @@ namespace Core
 #define ETL_TEXT(x) "x"
 #endif // ETL_UNICODE
 
-	Wide16String ToWide16String(const EtlString& string);
-	EtlString ToNetString(const Wide16String& string);
+	Wide16String ToWide16StringFromWideString(const WideString& string);
+	WideString FromWide16StringToWideString(const Wide16String& string);
+	Wide16String ToWide16StringFromMbString(const MbString& string);
+	MbString FromWide16StringToMbString(const Wide16String& string);
+
+	inline Wide16String ToWide16String(const EtlString& string)
+	{
+#if ETL_UNICODE
+		return ToWide16StringFromWideString(string);
+#else // ETL_UNICODE
+		return ToWide16StringFromMbString(string);
+#endif // ETL_UNICODE
+	}
+	inline EtlString FromWide16String(const Wide16String& string)
+	{
+#if ETL_UNICODE
+#else // ETL_UNICDOE
+#endif // ETL_UNICDOE
+	}
 
 	typedef uint8_t byte;
 	typedef uint16_t word;
@@ -61,22 +77,42 @@ namespace Core
 
 		LocalCharPtr() : Ptr(nullptr) { }
 		LocalCharPtr(unsigned int size) { Ptr = ETL_NEW("ETL:Core:LocalCharPtr:Ptr") char[size]; }
+		LocalCharPtr(const EtlString& str);
 		~LocalCharPtr() { ETL_DELETE[] Ptr; }
 		operator char*() { return Ptr; }
 		char** operator&() { return &Ptr; }
 		char operator*() { return *Ptr; }
 		char operator[](unsigned int index) { return Ptr[index]; }
+		operator EtlString() const;
 	};
 
-	void QStringToLower(qString& string);
-	void QStringAsLower(qString& outString, const qString& inString);
-	qString QStringAsLower(const qString& string);
-	void QStringToUpper(qString& string);
-	void QStringAsUpper(qString& outString, const qString& inString);
-	qString QStringAsUpper(const qString& string);
-	void QStringToMBCharArray(char** mbCharArray, const qString& str);
-	void MBCharArrayToQString(qString& str, const char* mbCharArray);
-}
-}
+	void WideStringToMbCharArray(char** mbCharArray, const WideString& str);
+	void WideStringToMbString(MbString& out, const WideString& str);
+	void MbCharArrayToWideString(WideString& str, const char* mbCharArray);
+	void MbStringToWideString(WideString& out, const MbString& str);
 
-#endif
+#if ETL_UNICODE
+	inline void EtlStringToMbCharArray(char** mbCharArray, const EtlString& str)
+	{
+		WideStringToMbCharArray(mbCharArray, str);
+	}
+
+	inline void MbCharArrayToEtlString(EtlString& str, const char* mbCharArray)
+	{
+		MbCharArrayToWideString(str, mbCharArray);
+	}
+
+#else // ETL_UNICODE
+
+	inline void EtlStringToMbCharArray(char** mbCharArray, const EtlString& str)
+	{
+		*mbCharArray = str.c_str();
+	}
+
+	inline void MbCharArrayToEtlString(EtlString& str, const char* mbCharArray)
+	{
+		str = mbCharArray;
+	}
+#endif // ETL_UNICODE
+}
+}

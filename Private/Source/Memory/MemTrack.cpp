@@ -2,11 +2,13 @@
 #include "Memory/InternalAllocator.h"
 #include <stdint.h>
 #include <unordered_map>
-#include "Hash.h"
-#include "SimpleMutex.h"
+#include "Utility/Hash.h"
+#include "Threading/SimpleMutex.h"
 #include <string.h>
 
 using std::unordered_map;
+using ETL::Threading::SimpleMutex;
+using ETL::Threading::SimpleScopeLock;
 
 #if ETL_MSVC
 #pragma init_seg(".CRT$XCB")
@@ -17,22 +19,22 @@ using std::unordered_map;
 #if ETL_LLVM || ETL_GCC
 void* operator new(size_t size)
 {
-	return QLib::MemTrack::Instance().Track(size, "Anonymous");
+	return ETL::Memory::MemTrack::Instance().Track(size, "Anonymous");
 }
 
 void* operator new[](size_t size)
 {
-	return QLib::MemTrack::Instance().Track(size, "AnonymousArray");
+	return ETL::Memory::MemTrack::Instance().Track(size, "AnonymousArray");
 }
 
 void operator delete(void* ptr) noexcept
 {
-	QLib::MemTrack::Instance().Release(ptr);
+	ETL::Memory::MemTrack::Instance().Release(ptr);
 }
 
 void operator delete[](void* ptr) noexcept
 {
-	QLib::MemTrack::Instance().Release(ptr);
+	ETL::Memory::MemTrack::Instance().Release(ptr);
 }
 #endif // ETL_LLVM || ETL_GCC
 
@@ -89,8 +91,8 @@ namespace Memory
 			else
 				filename = &filename[1]; // Remove the backslash
 
-			uint64_t hash = QHash::FNV64(tag, strlen(tag));
-			hash ^= QHash::FNV64(filename, strlen(filename));
+			uint64_t hash = Utility::Hash::FNV64(tag, strlen(tag));
+			hash ^= Utility::Hash::FNV64(filename, strlen(filename));
 			hash ^= line;
 
 			auto varIter = m_TagMap.find(hash);

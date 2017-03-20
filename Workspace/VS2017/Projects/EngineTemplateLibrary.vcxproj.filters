@@ -33,6 +33,12 @@
     <Filter Include="Public\Utility">
       <UniqueIdentifier>{1592b5fd-646f-4a42-bb7f-fe39added276}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public\Threading">
+      <UniqueIdentifier>{c1d52c3e-57db-4189-8518-fe891ff80800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Threading">
+      <UniqueIdentifier>{7482a17d-42f2-4cdd-985e-4b4ecd9315df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h">
@@ -53,6 +59,18 @@
     <ClInclude Include="..\..\..\Public\Utility\Types.h">
       <Filter>Public\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Hash.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -60,6 +78,18 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp">
       <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp">
+      <Filter>Private\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
