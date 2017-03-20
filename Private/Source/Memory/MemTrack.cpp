@@ -11,7 +11,9 @@ using ETL::Threading::SimpleMutex;
 using ETL::Threading::SimpleScopeLock;
 
 #if ETL_MSVC
+#pragma warning(disable:4075)
 #pragma init_seg(".CRT$XCB")
+#pragma warning(default:4075)
 #endif // ETL_MSVC
 
 #if ETL_DEBUG

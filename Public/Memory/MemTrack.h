@@ -43,7 +43,7 @@ inline void operator delete[](void* ptr, const char* tag, const char* file, int 
 inline void* EtlAlloc(const char* tag, size_t size, const char* file, int line) { return ETL::Memory::MemTrack::Instance().Track(size, tag, file, line); }
 inline void EtlFree(void* ptr) { ETL::Memory::MemTrack::Instance().Release(ptr); }
 
-#if ETL_MSVC
+#if ETL_MSVC && _MSC_VER < 1900
 
 inline void* operator new(size_t size) { return ETL::Memory::MemTrack::Instance().Track(size, "Anonymous"); }
 inline void* operator new[](size_t size) { return ETL::Memory::MemTrack::Instance().Track(size, "Anonymous"); }

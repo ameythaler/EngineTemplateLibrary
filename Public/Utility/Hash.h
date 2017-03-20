@@ -48,11 +48,6 @@ namespace Hash
 		return FNV32((byte*)data, dataSize);
 	}
 
-	inline uint32 FNV32(const EtlString& str)
-	{
-		return FNV32(str.c_str(), str.length() * sizeof(EtlChar));
-	}
-
 	inline uint32 FNV32(const WideString& str)
 	{
 		return FNV32(str.c_str(), str.length() * sizeof(wchar_t));
@@ -98,11 +93,6 @@ namespace Hash
 	inline uint64 FNV64(const EtlString& str)
 	{
 		return FNV64(str.c_str(), str.length() * sizeof(EtlChar));
-	}
-
-	inline uint64 FNV64(const WideString& str)
-	{
-		return FNV64(str.c_str(), str.length() * sizeof(wchar_t));
 	}
 
 	inline uint64 FNV64(const MbString& str)
