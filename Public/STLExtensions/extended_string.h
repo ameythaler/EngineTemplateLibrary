@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Platform.h"
+#include "Utility/Platform.h"
 
 #include <string>
 #include <vector>
@@ -24,6 +24,18 @@ namespace STLExtensions
 {
 	template<class charT>
 	const charT* new_line();
+
+	template<typename strT>
+	strT& extended_string_to_upper(strT& str);
+
+	template<typename strT>
+	strT extended_string_as_upper(const strT& str);
+
+	template<typename strT>
+	strT& extended_string_to_lower(strT& str);
+
+	template<typename strT>
+	strT extended_string_as_lower(const strT& str);
 
 	template<class charT, class traits = std::char_traits<charT>, class Alloc = std::allocator<charT>>
 	class extended_string
@@ -445,6 +457,27 @@ namespace STLExtensions
 			return split(new_line<charT>(), keep_line_ends);
 		}
 
+		// to_upper
+		extended_string& to_upper()
+		{
+			return extended_string_to_upper(*this);
+		}
+		// as_upper
+		extended_string as_upper() const
+		{
+			return extended_string_as_upper(*this);
+		}
+		// to_lower
+		extended_string& to_lower()
+		{
+			return extended_string_to_lower(*this);
+		}
+		// as_lower
+		extended_string as_lower() const
+		{
+			return extended_string_as_lower(*this);
+		}
+
 	protected:
 		std::basic_string<charT> m_String;
 
@@ -461,6 +494,7 @@ namespace STLExtensions
 		}
 	};
 
+	// new_line()
 	template<>
 	const char* new_line();
 	template<>
@@ -469,6 +503,30 @@ namespace STLExtensions
 	const char16_t* new_line();
 	template<>
 	const char32_t* new_line();
+
+	// extended_string_to_upper
+	template<>
+	extended_string<char>& extended_string_to_upper(extended_string<char>& str);
+	template<>
+	extended_string<wchar_t>& extended_string_to_upper(extended_string<wchar_t>& str);
+
+	// extended_string_as_upper
+	template<>
+	extended_string<char> extended_string_as_upper(const extended_string<char>& str);
+	template<>
+	extended_string<wchar_t> extended_string_as_upper(const extended_string<wchar_t>& str);
+
+	// extended_string_to_lower
+	template<>
+	extended_string<char>& extended_string_to_lower(extended_string<char>& str);
+	template<>
+	extended_string<wchar_t>& extended_string_to_lower(extended_string<wchar_t>& str);
+
+	// extended_string_as_lower
+	template<>
+	extended_string<char> extended_string_as_lower(const extended_string<char>& str);
+	template<>
+	extended_string<wchar_t> extended_string_as_lower(const extended_string<wchar_t>& str);
 }
 }
 

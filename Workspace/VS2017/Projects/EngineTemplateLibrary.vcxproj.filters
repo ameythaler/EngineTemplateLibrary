@@ -15,26 +15,80 @@
     <Filter Include="Private\Source">
       <UniqueIdentifier>{865cd6a5-1c4c-4eed-8094-38302055edbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Public\Core">
-      <UniqueIdentifier>{0d6ade20-3f84-4567-aaa3-19613bda53c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Public\STLExtensions">
       <UniqueIdentifier>{c1ec7ae8-5f1e-41ed-ab93-bfa19ea8bc5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public\Memory">
+      <UniqueIdentifier>{4121b840-bc7b-4f90-ba06-3c0df9d9e2c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\STLExtensions">
+      <UniqueIdentifier>{0eb2b992-9edb-4c48-820e-00f53a26eb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Memory">
+      <UniqueIdentifier>{980a8e35-eeef-46c1-b00f-72d38be743dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Headers\Memory">
+      <UniqueIdentifier>{222435f1-4de7-4535-973f-397454b9c51e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Utility">
+      <UniqueIdentifier>{1592b5fd-646f-4a42-bb7f-fe39added276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Threading">
+      <UniqueIdentifier>{c1d52c3e-57db-4189-8518-fe891ff80800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Threading">
+      <UniqueIdentifier>{7482a17d-42f2-4cdd-985e-4b4ecd9315df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Public\Core\Platform.h">
-      <Filter>Public\Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h">
       <Filter>Public\STLExtensions</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp">
       <Filter>Public\STLExtensions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemTrack.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h">
+      <Filter>Private\Headers\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Platform.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Types.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Hash.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
+      <Filter>Private\Source\STLExtensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp">
       <Filter>Private\Source</Filter>
     </ClCompile>
   </ItemGroup>

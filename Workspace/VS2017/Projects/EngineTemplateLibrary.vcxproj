@@ -27,12 +27,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Public\Core\Platform.h" />
+    <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp" />
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h" />
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h" />
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Std.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Hash.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Std.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
