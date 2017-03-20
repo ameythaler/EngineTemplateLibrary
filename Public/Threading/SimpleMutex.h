@@ -6,7 +6,7 @@
 
 #include "Threading/SimpleMutex_Msvc.h"
 
-#else
+#else // ETL_MSVC
 
 #include "Threading/SimpleMutex_Std.h"
 

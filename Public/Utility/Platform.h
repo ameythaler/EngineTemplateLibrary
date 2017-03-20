@@ -49,6 +49,8 @@
 
 #endif
 
+#define ETL_STD ETL_LLVM | ETL_GCC
+
 // Operating System and Debug
 #define ETL_WIN 0
 #define ETL_LINUX 0
@@ -81,6 +83,8 @@
 #endif
 
 #endif
+
+#define ETL_POSIX ETL_MAC | ETL_LINUX
 
 // Compatibility
 #define ETL_NOEXCEPT noexcept

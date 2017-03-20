@@ -18,7 +18,7 @@ using ETL::Threading::SimpleScopeLock;
 
 #if ETL_DEBUG
 
-#if ETL_LLVM || ETL_GCC
+#if ETL_STD
 void* operator new(size_t size)
 {
 	return ETL::Memory::MemTrack::Instance().Track(size, "Anonymous");
@@ -38,7 +38,7 @@ void operator delete[](void* ptr) noexcept
 {
 	ETL::Memory::MemTrack::Instance().Release(ptr);
 }
-#endif // ETL_LLVM || ETL_GCC
+#endif // ETL_STD
 
 namespace ETL
 {
@@ -85,7 +85,7 @@ namespace Memory
 			SimpleScopeLock lock(trackMutex);
 #if ETL_WIN
 			const char* filename = FindLastChar(file, '\\');
-#elif ETL_MAC || ETL_LINUX
+#elif ETL_POSIX
 			const char* filename = FindLastChar(file, '/');
 #endif
 			if (filename == nullptr)
