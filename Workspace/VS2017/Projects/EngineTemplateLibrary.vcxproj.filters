@@ -122,6 +122,9 @@
     <ClInclude Include="..\..\..\Public\Math\Math.h">
       <Filter>Public\Math</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Logger.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -171,6 +174,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp">
       <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Logger.cpp">
+      <Filter>Private\Source\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

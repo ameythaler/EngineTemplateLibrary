@@ -46,6 +46,7 @@
     <ClInclude Include="..\..\..\Public\Threading\Synchronizer_Std.h" />
     <ClInclude Include="..\..\..\Public\Utility\DateTime.h" />
     <ClInclude Include="..\..\..\Public\Utility\Hash.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Logger.h" />
     <ClInclude Include="..\..\..\Public\Utility\Macros.h" />
     <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
     <ClInclude Include="..\..\..\Public\Utility\Types.h" />
@@ -66,6 +67,7 @@
     <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Msvc.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Std.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\DateTime.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\Logger.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -10,7 +10,7 @@
 
 namespace ETL
 {
-#if ETL_32BIT // TODO: Need a 64 and 32 bit flag because this isn't Mac specific.
+#if ETL_32BIT
 	typedef uint32_t PtrSize;
 #elif ETL_64BIT
 	typedef uint64_t PtrSize;
