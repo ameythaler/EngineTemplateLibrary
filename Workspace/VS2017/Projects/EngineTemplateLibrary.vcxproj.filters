@@ -125,6 +125,9 @@
     <ClInclude Include="..\..\..\Public\Utility\Logger.h">
       <Filter>Public\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h">
+      <Filter>Public\Filesystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -177,6 +180,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Utility\Logger.cpp">
       <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp">
+      <Filter>Private\Source\Filesystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

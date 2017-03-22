@@ -20,6 +20,8 @@ namespace ETL
 {
 namespace Utility
 {
+	ETL_IMPLEMENT_SINGLETON(Logger);
+
 	Logger::Logger() : m_bLogToWindow(false), m_bLogToFile(false), m_bLogDebug(false)
 	{
 

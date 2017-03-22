@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
+    <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
     <ClInclude Include="..\..\..\Public\Math\Math.h" />
     <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
@@ -52,6 +53,7 @@
     <ClInclude Include="..\..\..\Public\Utility\Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Win.cpp" />

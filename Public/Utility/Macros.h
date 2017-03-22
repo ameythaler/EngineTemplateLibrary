@@ -3,31 +3,31 @@
 #include "Utility/Platform.h"
 
 #if ETL_MSVC
-#define ALIGN(x) __declspec(align(x))
+#define ETL_ALIGN(x) __declspec(align(x))
 #elif ETL_STD // ETL_MSVC
-#define ALIGN(x) __attribute__((aligned(x)))
+#define ETL_ALIGN(x) __attribute__((aligned(x)))
 #if ETL_MAC
 #ifdef __OJBC__
-#define OBJC_CLASS(name) @class name
+#define ETL_OBJC_CLASS(name) @class name
 #else // __OBJC__
-#define OBJC_CLASS(name) typedef struct objc_object name
+#define ETL_OBJC_CLASS(name) typedef struct objc_object name
 #endif // __OBJC__
 #endif // ETL_MAC
 #endif // ETL_MSVC
 
 #if ETL_WIN
-#define SYSTEM_PAUSE system("Pause")
+#define ETL_SYSTEM_PAUSE system("Pause")
 #elif ETL_POSIX // ETL_WIN
-#define SYSTEM_PAUSE system("read -n 1 -s -p \"Press any key to continue...\"; echo")
+#define ETL_SYSTEM_PAUSE system("read -n 1 -s -p \"Press any key to continue...\"; echo")
 #endif // ETL_WIN
 
-#define DISABLECOPYING(x) x(const x&) = delete;\
+#define ETL_DISABLECOPYING(x) x(const x&) = delete;\
 x(const x&&) = delete;\
 x& operator =(const x&) = delete;\
 x& operator =(const x&&) = delete
 
-#define ITERATOR_FOR_LOOP(iter, container) for(auto iter = container.begin(); iter != container.end(); ++iter)
-#define ITERATOR_WHILE_LOOP(iter, container) for(auto iter = container.begin(); iter != container.end();)
+#define ETL_ITERATOR_FOR_LOOP(iter, container) for(auto iter = container.begin(); iter != container.end(); ++iter)
+#define ETL_ITERATOR_WHILE_LOOP(iter, container) for(auto iter = container.begin(); iter != container.end();)
 
 #define ETL_DECLARE_SINGLETON(className) public:\
 inline static className& Instance()\
