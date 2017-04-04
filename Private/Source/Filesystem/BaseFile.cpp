@@ -10,7 +10,7 @@ namespace Filesystem
 
 	}
 
-	BaseFile::BaseFile(const EtlString& filename, BaseFileAccessMode accessMode, BaseFileContentMode contentMode)
+	BaseFile::BaseFile(const EtlString& filename, AccessMode accessMode, ContentMode contentMode)
 	{
 		Open(filename, accessMode, contentMode);
 	}
@@ -20,20 +20,20 @@ namespace Filesystem
 		Close();
 	}
 
-	bool BaseFile::Open(const EtlString& filename, BaseFileAccessMode accessMode, BaseFileContentMode contentMode)
+	bool BaseFile::Open(const EtlString& filename, AccessMode accessMode, ContentMode contentMode)
 	{
-		bool bBinary = (contentMode == BaseFileContentMode::Binary);
-#if ETL_WIN
+		bool bBinary = (contentMode == ContentMode::Binary);
+#if ETL_WIN && ETL_UNICODE
 		wchar_t* modeStr;
 		switch (accessMode)
 		{
-		case BaseFileAccessMode::ReadOnly:
+		case AccessMode::ReadOnly:
 			modeStr = (bBinary) ? L"rb" : L"r";
 			break;
-		case BaseFileAccessMode::WriteAppend:
+		case AccessMode::WriteAppend:
 			modeStr = (bBinary) ? L"ab" : L"a";
 			break;
-		case BaseFileAccessMode::WriteTruncate:
+		case AccessMode::WriteTruncate:
 			modeStr = (bBinary) ? L"wb" : L"w";
 			break;
 		}
@@ -43,18 +43,18 @@ namespace Filesystem
 		char* modeStr;
 		switch (accessMode)
 		{
-		case BaseFileAccessMode::ReadOnly:
+		case AccessMode::ReadOnly:
 			modeStr = (bBinary) ? "rb" : "r";
 			break;
-		case BaseFileAccessMode::WriteAppend:
+		case AccessMode::WriteAppend:
 			modeStr = (bBinary) ? "ab" : "a";
 			break;
-		case BaseFileAccessMode::WriteTruncate:
+		case AccessMode::WriteTruncate:
 			modeStr = (bBinary) ? "wb" : "w";
 			break;
 		}
 		LocalCharPtr fileStr;
-		EtlStringToMBCharArray(&fileStr, filename);
+		EtlStringToMbCharArray(&fileStr, filename);
 		m_pFile = fopen(fileStr, modeStr);
 #endif // ETL_WIN
 
@@ -78,12 +78,12 @@ namespace Filesystem
 		fflush(m_pFile);
 	}
 
-	bool BaseFile::Seek(int32_t position)
+	bool BaseFile::Seek(int32 position)
 	{
 		return fseek(m_pFile, position, SEEK_SET) == 0;
 	}
 
-	int32_t BaseFile::GetPosition()
+	int32 BaseFile::GetPosition()
 	{
 		return ftell(m_pFile);
 	}
@@ -106,22 +106,22 @@ namespace Filesystem
 
 	void BaseFile::WriteData(const void* pData, size_t dataSize)
 	{
-		fwrite(pData, sizeof(uint8_t), dataSize, m_pFile);
+		fwrite(pData, sizeof(uint8), dataSize, m_pFile);
 	}
 
-	void BaseFile::ReadLine(char* szText, int32_t maxLen)
+	void BaseFile::ReadLine(char* szText, int32 maxLen)
 	{
 		fgets(szText, maxLen, m_pFile);
 	}
 
-	void BaseFile::ReadLine(wchar_t* szText, int32_t maxLen)
+	void BaseFile::ReadLine(wchar_t* szText, int32 maxLen)
 	{
 		fgetws(szText, maxLen, m_pFile);
 	}
 
 	size_t BaseFile::Read(void* pData, size_t dataSize)
 	{
-		return fread(pData, sizeof(uint8_t), dataSize, m_pFile);
+		return fread(pData, sizeof(uint8), dataSize, m_pFile);
 	}
 
 	char BaseFile::ReadChar()

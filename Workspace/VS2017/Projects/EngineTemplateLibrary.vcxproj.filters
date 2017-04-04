@@ -128,6 +128,9 @@
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h">
       <Filter>Public\Filesystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\LogStream.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -183,6 +186,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp">
       <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\LogStream.cpp">
+      <Filter>Private\Source\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
