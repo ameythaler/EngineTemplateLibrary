@@ -6,7 +6,9 @@
     <ETL_Bin_Dir>..\..\..\Bin</ETL_Bin_Dir>
     <ETL_Bin_Base>ETL</ETL_Bin_Base>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <IncludePath>..\..\..\Public;..\..\..\Private\Headers$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup>
     <BuildMacro Include="ETL_Intermediate_Dir">
