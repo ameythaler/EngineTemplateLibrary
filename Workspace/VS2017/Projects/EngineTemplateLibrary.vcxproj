@@ -45,11 +45,17 @@
     <ClInclude Include="..\..\..\Public\Threading\Synchronizer.h" />
     <ClInclude Include="..\..\..\Public\Threading\Synchronizer_Msvc.h" />
     <ClInclude Include="..\..\..\Public\Threading\Synchronizer_Std.h" />
+    <ClInclude Include="..\..\..\Public\Threading\Thread.h" />
+    <ClInclude Include="..\..\..\Public\Threading\Thread_Msvc.h" />
+    <ClInclude Include="..\..\..\Public\Threading\Thread_Std.h" />
     <ClInclude Include="..\..\..\Public\Utility\DateTime.h" />
     <ClInclude Include="..\..\..\Public\Utility\Hash.h" />
     <ClInclude Include="..\..\..\Public\Utility\Logger.h" />
     <ClInclude Include="..\..\..\Public\Utility\Macros.h" />
     <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Timer.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h" />
+    <ClInclude Include="..\..\..\Public\Utility\Timer_Win.h" />
     <ClInclude Include="..\..\..\Public\Utility\Types.h" />
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +74,12 @@
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Std.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Msvc.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Std.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Msvc.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Std.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\DateTime.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Logger.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
