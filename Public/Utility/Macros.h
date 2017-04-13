@@ -22,9 +22,6 @@
 #endif // ETL_WIN
 
 #define ETL_DISABLECOPYING(x) x(const x&) = delete;\
-x& operator =(const x&) = delete;
-
-#define ETL_DISABLECOPYING_AND_MOVE(x) x(const x&) = delete;\
 x(const x&&) = delete;\
 x& operator =(const x&) = delete;\
 x& operator =(const x&&) = delete

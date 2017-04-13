@@ -78,13 +78,9 @@ namespace Threading
 		m_ThreadHandle = nullptr;
 	}
 
-	const Thread&& Thread::ThisThread()
+	ThreadId Thread::ThisThreadId()
 	{
-		Thread thisThread;
-		thisThread.m_ThreadID = GetCurrentThreadId();
-		thisThread.m_ThreadHandle = GetCurrentThread();
-		thisThread.m_IsStarted = true;
-		return std::move(thisThread);
+		return GetCurrentThreadId();
 	}
 
 	bool Thread::operator==(const Thread& rhs) const

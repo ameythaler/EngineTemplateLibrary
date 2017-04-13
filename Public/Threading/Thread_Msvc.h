@@ -28,6 +28,7 @@ namespace Threading
 #define ETL_THREAD_START_FUNC(func_name) int32 func_name(void)
 
 	typedef std::function<int32(void)> ThreadStartFunc;
+	typedef uint32 ThreadId;
 
 	class Thread
 	{
@@ -41,14 +42,15 @@ namespace Threading
 		void Start(const ThreadStartFunc& startFunc);
 		void Join();
 		void Detach();
-		static const Thread&& ThisThread();
+		inline ThreadId GetThreadId() const { return m_ThreadID; }
+		static ThreadId ThisThreadId();
 
 		bool operator==(const Thread& rhs) const;
 		bool operator!=(const Thread& rhs) const;
 
 	private:
 		HANDLE m_ThreadHandle;
-		uint32 m_ThreadID;
+		ThreadId m_ThreadID;
 		ThreadStartFunc m_StartFunc;
 		mutable LONG m_IsStarted;
 
