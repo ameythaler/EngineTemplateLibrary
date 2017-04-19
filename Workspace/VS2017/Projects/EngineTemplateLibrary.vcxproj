@@ -38,6 +38,9 @@
     <ClInclude Include="..\..\..\Public\Threading\Mutex.h" />
     <ClInclude Include="..\..\..\Public\Threading\Mutex_Msvc.h" />
     <ClInclude Include="..\..\..\Public\Threading\Mutex_Std.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Msvc.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Std.h" />
     <ClInclude Include="..\..\..\Public\Threading\ScopeLock.h" />
     <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h" />
     <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h" />
@@ -68,6 +71,8 @@
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Msvc.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Std.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Msvc.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Std.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\ScopeLock.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp" />

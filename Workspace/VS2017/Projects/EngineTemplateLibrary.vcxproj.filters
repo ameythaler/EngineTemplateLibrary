@@ -146,6 +146,15 @@
     <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h">
       <Filter>Public\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -213,6 +222,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp">
       <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
