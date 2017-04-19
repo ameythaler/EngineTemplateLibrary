@@ -3,8 +3,6 @@
 
 namespace ETL
 {
-namespace Utility
-{
 	LocalCharPtr::LocalCharPtr(const EtlString& str)
 	{
 		EtlStringToMbCharArray(&Ptr, str);
@@ -74,5 +72,4 @@ namespace Utility
 		out.resize(str.length());
 		mbstowcs(&out[0], &str[0], str.length());
 	}
-}
 }

@@ -1,6 +1,6 @@
 #include "Utility/Platform.h"
 
-#if ETL_LLVM || ETL_GCC
+#if ETL_STD
 
 #include "Threading/SimpleMutex_Std.h"
 
@@ -20,4 +20,4 @@ namespace Threading
 }
 }
 
-#endif // ETL_LLVM || ETL_GCC
+#endif // ETL_STD

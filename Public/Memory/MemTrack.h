@@ -58,11 +58,11 @@ inline void operator delete[](void* ptr) { ETL::Memory::MemTrack::Instance().Rel
 #define ETL_ALLOC(tag, size) EtlAlloc(tag, size, __FILE__, __LINE__)
 #define ETL_FREE(ptr) EtlFree(ptr)
 
-#else
+#else // ETL_DEBUG
 
 #define ETL_NEW(tag) new
 #define ETL_DELETE delete
 #define ETL_ALLOC(tag, size) malloc(size)
 #define ETL_FREE(ptr) free(ptr)
 
-#endif
+#endif // ETL_DEBUG

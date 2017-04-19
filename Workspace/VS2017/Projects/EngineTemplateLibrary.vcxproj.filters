@@ -39,6 +39,21 @@
     <Filter Include="Private\Source\Threading">
       <UniqueIdentifier>{7482a17d-42f2-4cdd-985e-4b4ecd9315df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Private\Source\Utility">
+      <UniqueIdentifier>{cca8c4b9-19a5-4588-99c9-75eac991b614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Filesystem">
+      <UniqueIdentifier>{c7413237-4ed2-4455-a000-4dacd79a0553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Filesystem">
+      <UniqueIdentifier>{172cad7c-132c-4130-b32f-cbffbd151a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Math">
+      <UniqueIdentifier>{d78fc610-5f7d-4605-b07e-82fdefe18ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Math">
+      <UniqueIdentifier>{a87d8d5e-bd42-41e3-a3e8-e69731358903}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h">
@@ -71,6 +86,66 @@
     <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h">
       <Filter>Public\Threading</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Macros.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Mutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Mutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Mutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Lockable.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\ScopeLock.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Synchronizer_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Synchronizer_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Synchronizer.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\DateTime.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Filesystem\Directory.h">
+      <Filter>Public\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Math.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Logger.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h">
+      <Filter>Public\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Thread.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Thread_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\Thread_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Timer.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Timer_Win.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -88,8 +163,56 @@
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp">
       <Filter>Private\Source\Threading</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\ScopeLock.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp">
-      <Filter>Private\Source</Filter>
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Synchronizer_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory.cpp">
+      <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Win.cpp">
+      <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Posix.cpp">
+      <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\DateTime.cpp">
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Logger.cpp">
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp">
+      <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Win.cpp">
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp">
+      <Filter>Private\Source\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

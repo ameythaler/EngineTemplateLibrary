@@ -2,7 +2,7 @@
 
 #include "Utility/Platform.h"
 
-#if ETL_LLVM || ETL_GCC
+#if ETL_STD
 
 #include <mutex>
 
@@ -22,4 +22,4 @@ namespace Threading
 }
 }
 
-#endif // ETL_LLVM || ETL_GCC
+#endif // ETL_STD

@@ -32,7 +32,7 @@ namespace STLExtensions
 		return (char32_t*)L"\n\r";
 	}
 
-#else
+#elif ETL_POSIX
 
 	template<>
 	const char* new_line()

@@ -10,9 +10,7 @@
 
 namespace ETL
 {
-namespace Utility
-{
-#if ETL_32BIT // TODO: Need a 64 and 32 bit flag because this isn't Mac specific.
+#if ETL_32BIT
 	typedef uint32_t PtrSize;
 #elif ETL_64BIT
 	typedef uint64_t PtrSize;
@@ -28,12 +26,12 @@ namespace Utility
 	typedef WideString EtlString;
 	typedef WideStringStream EtlStringStream;
 	typedef wchar_t EtlChar;
-#define ETL_TEXT(x) L"x"
+#define ETL_TEXT(x) L##x
 #else
 	typedef MbString EtlString;
 	typedef MbString EtlStringStream;
 	typedef char EtlChar;
-#define ETL_TEXT(x) "x"
+#define ETL_TEXT(x) x
 #endif // ETL_UNICODE
 
 	Wide16String ToWide16StringFromWideString(const WideString& string);
@@ -102,8 +100,30 @@ namespace Utility
 		MbCharArrayToWideString(str, mbCharArray);
 	}
 
-#else // ETL_UNICODE
+	inline EtlString WideStringToEtlString(const WideString& str)
+	{
+		return str;
+	}
 
+	inline WideString EtlStringToWideString(const EtlString& str)
+	{
+		return str;
+	}
+
+	inline EtlString MbStringToEtlString(const MbString& str)
+	{
+		EtlString out;
+		MbStringToWideString(out, str);
+		return out;
+	}
+
+	inline MbString EtlStringToMbString(const EtlString& str)
+	{
+		MbString out;
+		WideStringToMbString(out, str);
+		return out;
+	}
+#else // ETL_UNICODE
 	inline void EtlStringToMbCharArray(char** mbCharArray, const EtlString& str)
 	{
 		*mbCharArray = str.c_str();
@@ -113,6 +133,29 @@ namespace Utility
 	{
 		str = mbCharArray;
 	}
+
+	inline EtlString WideStringToEtlString(const WideString& str)
+	{
+		EtlString out;
+		WideStringToMbString(out, str);
+		return out;
+	}
+
+	inline WideString EtlStringToWideString(const EtlString& str)
+	{
+		MbString out;
+		MbStringToWideString(out, str);
+		return out;
+	}
+
+	inline EtlString MbStringToEtlString(const MbString& str)
+	{
+		return str;
+	}
+
+	inline MbString EtlStringToMbString(const EtlString& str)
+	{
+		return str;
+	}
 #endif // ETL_UNICODE
-}
 }
