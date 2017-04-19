@@ -155,6 +155,12 @@
     <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Std.h">
       <Filter>Public\Threading</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector2.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector2.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">

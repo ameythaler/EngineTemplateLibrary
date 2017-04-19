@@ -31,6 +31,8 @@
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
     <ClInclude Include="..\..\..\Public\Math\Math.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector2.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector2.hpp" />
     <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp" />
