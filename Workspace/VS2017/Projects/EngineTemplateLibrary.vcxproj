@@ -33,6 +33,12 @@
     <ClInclude Include="..\..\..\Public\Math\Math.h" />
     <ClInclude Include="..\..\..\Public\Math\Vector2.h" />
     <ClInclude Include="..\..\..\Public\Math\Vector2.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.hpp" />
     <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp" />
@@ -58,6 +64,7 @@
     <ClInclude Include="..\..\..\Public\Utility\Logger.h" />
     <ClInclude Include="..\..\..\Public\Utility\Macros.h" />
     <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
+    <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer_Win.h" />
@@ -69,6 +76,9 @@
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemHeap.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemStack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Msvc.cpp" />

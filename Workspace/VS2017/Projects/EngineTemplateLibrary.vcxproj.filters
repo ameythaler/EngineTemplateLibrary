@@ -161,6 +161,27 @@
     <ClInclude Include="..\..\..\Public\Math\Vector2.hpp">
       <Filter>Public\Math</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -234,6 +255,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Std.cpp">
       <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemStack.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemHeap.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp">
+      <Filter>Private\Source\Memory</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Utility/Platform.h"
-#include "STLExtensions/extended_string.h"
-#include "Memory/MemTrack.h"
 #include <inttypes.h>
 #include <wchar.h>
 #include <sstream>
 #include <vector>
+#include "Utility/Platform.h"
+#include "STLExtensions/extended_string.h"
+#include "Memory/MemTrack.h"
 
 namespace ETL
 {
@@ -26,11 +26,13 @@ namespace ETL
 	typedef WideString EtlString;
 	typedef WideStringStream EtlStringStream;
 	typedef wchar_t EtlChar;
+	typedef std::wostream EtlStream;
 #define ETL_TEXT(x) L##x
 #else
 	typedef MbString EtlString;
 	typedef MbString EtlStringStream;
 	typedef char EtlChar;
+	typedef std::ostream EtlStream;
 #define ETL_TEXT(x) x
 #endif // ETL_UNICODE
 
@@ -74,7 +76,7 @@ namespace ETL
 		char* Ptr;
 
 		LocalCharPtr() : Ptr(nullptr) { }
-		LocalCharPtr(unsigned int size) { Ptr = ETL_NEW("ETL:Core:LocalCharPtr:Ptr") char[size]; }
+		LocalCharPtr(unsigned int size) { Ptr = ETL_NEW("ETL::LocalCharPtr:Ptr") char[size]; }
 		LocalCharPtr(const EtlString& str);
 		~LocalCharPtr() { ETL_DELETE[] Ptr; }
 		operator char*() { return Ptr; }
