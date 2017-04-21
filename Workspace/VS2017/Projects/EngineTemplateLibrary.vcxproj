@@ -62,6 +62,7 @@
     <ClInclude Include="..\..\..\Public\Utility\DateTime.h" />
     <ClInclude Include="..\..\..\Public\Utility\Hash.h" />
     <ClInclude Include="..\..\..\Public\Utility\Logger.h" />
+    <ClInclude Include="..\..\..\Public\Utility\LogStream.h" />
     <ClInclude Include="..\..\..\Public\Utility\Macros.h" />
     <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
     <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h" />
@@ -98,6 +99,7 @@
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\LogStream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

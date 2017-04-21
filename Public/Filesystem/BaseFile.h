@@ -9,34 +9,34 @@ namespace ETL
 {
 namespace Filesystem
 {
-	enum class BaseFileAccessMode : uint8
-	{
-		ReadOnly,
-		WriteAppend,
-		WriteTruncate
-	};
-
-	enum class BaseFileContentMode : uint8
-	{
-		Text,
-		Binary
-	};
-
 	class BaseFile
 	{
 		ETL_DISABLECOPYING(BaseFile);
 
 	public:
+		enum class AccessMode : uint8
+		{
+			ReadOnly,
+			WriteAppend,
+			WriteTruncate
+		};
+
+		enum class ContentMode : uint8
+		{
+			Text,
+			Binary
+		};
+
 		BaseFile();
-		BaseFile(const EtlString& filename, BaseFileAccessMode accessMode, BaseFileContentMode contentMode);
+		BaseFile(const EtlString& filename, AccessMode accessMode, ContentMode contentMode);
 		~BaseFile();
 
-		bool Open(const EtlString& filename, BaseFileAccessMode accessMode, BaseFileContentMode contentMode);
+		bool Open(const EtlString& filename, AccessMode accessMode, ContentMode contentMode);
 		void Close();
 		void Flush();
 
 		bool Seek(int32_t position);
-		int32_t GetPosition();
+		int32 GetPosition();
 
 		void Write(const char* szFormat, ...);
 		void Write(const wchar_t* szFormat, ...);

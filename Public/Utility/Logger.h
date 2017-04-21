@@ -16,7 +16,7 @@ namespace Utility
 		ETL_DECLARE_SINGLETON(Logger);
 
 	public:
-		void Create(bool bLogToWindow, bool bLogToFile, bool bLogDebug, EtlString applicationName);
+		void Create(bool bLogToWindow, bool bLogToFile, bool bLogDebug, const EtlString& applicationName);
 		void Destroy();
 		void LogOut(const EtlString& message);
 		void LogOut(EtlStringStream& ssLogStream);
@@ -31,15 +31,20 @@ namespace Utility
 		bool m_bLogDebug;
 		static const int kNumLogs = 10;
 		Threading::Mutex m_LogMutex;
+		EtlStringBuf m_StringBuf;
 
 #if ETL_WIN
 		bool m_bCreatedConsole;
 #endif
+
+		EtlStringBuf& GetStringBuf();
+
+		friend class LogOutStream;
 	};
 
 	struct LogRAII
 	{
-		LogRAII(bool bLogToWindow, bool bLogToFile, bool bLogDebug, EtlString applicationName)
+		LogRAII(bool bLogToWindow, bool bLogToFile, bool bLogDebug, const EtlString& applicationName)
 		{
 			Logger::Instance().Create(bLogToWindow, bLogToFile, bLogDebug, applicationName);
 		}

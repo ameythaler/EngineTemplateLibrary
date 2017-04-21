@@ -128,6 +128,9 @@
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h">
       <Filter>Public\Filesystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\LogStream.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\Public\Threading\Thread.h">
       <Filter>Public\Threading</Filter>
     </ClInclude>
@@ -237,6 +240,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp">
       <Filter>Private\Source\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\LogStream.cpp">
+      <Filter>Private\Source\Utility</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Std.cpp">
       <Filter>Private\Source\Threading</Filter>

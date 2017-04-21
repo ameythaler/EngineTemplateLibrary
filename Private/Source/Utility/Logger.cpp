@@ -1,6 +1,7 @@
 #include "Utility/Logger.h"
 #include "Utility/DateTime.h"
 #include "Filesystem/Directory.h"
+#include "Filesystem/BaseFile.h"
 #include <cstdio>
 
 #if ETL_WIN
@@ -9,6 +10,7 @@
 
 using ETL::Filesystem::Directory;
 using ETL::Threading::ScopeWriteLock;
+using ETL::Filesystem::BaseFile;
 
 namespace
 {
@@ -32,7 +34,7 @@ namespace Utility
 
 	}
 
-	void Logger::Create(bool bLogToWindow, bool bLogToFile, bool bLogDebug, EtlString applicationName)
+	void Logger::Create(bool bLogToWindow, bool bLogToFile, bool bLogDebug, const EtlString& applicationName)
 	{
 		m_bLogToWindow = bLogToWindow;
 		m_bLogToFile = bLogToFile;
