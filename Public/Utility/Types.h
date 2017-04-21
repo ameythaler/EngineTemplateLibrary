@@ -3,6 +3,7 @@
 #include "Utility/Platform.h"
 #include "STLExtensions/extended_string.h"
 #include "Memory/MemTrack.h"
+#include "Utility/Macros.h"
 #include <inttypes.h>
 #include <wchar.h>
 #include <sstream>
@@ -32,7 +33,7 @@ namespace ETL
 	typedef wchar_t EtlChar;
 	typedef WideOStream EtlOStream;
 	typedef WideStringBuf EtlStringBuf;
-#define ETL_TEXT(x) L##x
+#define ETL_TEXT(x) ETL_CAT(L, x)
 #else
 	typedef MbString EtlString;
 	typedef MbString EtlStringStream;

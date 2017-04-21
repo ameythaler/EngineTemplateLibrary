@@ -4,7 +4,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir>$(ETL_Bin_Dir)\$(ETL_Build_Config)\$(ETL_Architecture)\</OutDir>
-    <IntDir>$(ETL_Intermediate_Dir)\$(ETL_Build_Config)\$(ETL_Architecture)\</IntDir>
+    <IntDir>$(ETL_Driver_Intermediate_Dir)\$(ETL_Build_Config)\$(ETL_Architecture)\</IntDir>
     <TargetName>Driver$(ETL_Architecture)$(ETL_Bin_Config)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup />

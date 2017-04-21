@@ -73,7 +73,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Properties\ETLBase.props" />
+    <Import Project="..\Properties\DriverBase.props" />
     <Import Project="..\Properties\ETLDebug.props" />
     <Import Project="..\Properties\ETLX64.props" />
     <Import Project="..\Properties\ETLDriver.props" />
@@ -88,9 +88,6 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>Driver</TargetName>
     <IncludePath>..\..\..\Private\Headers;..\..\..\Public;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -160,11 +157,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Driver\Source.cpp" />
+    <ClCompile Include="..\..\..\Driver\Types.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="EngineTemplateLibrary.vcxproj">
       <Project>{ef1da88e-a95a-46f3-82af-fa8b46ce32a3}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Driver\catch.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Driver\THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
