@@ -156,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Driver\Math.cpp" />
     <ClCompile Include="..\..\..\Driver\Source.cpp" />
     <ClCompile Include="..\..\..\Driver\Types.cpp" />
   </ItemGroup>

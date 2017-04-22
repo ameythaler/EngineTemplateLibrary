@@ -14,7 +14,10 @@ namespace Math
 	typedef Vector2<uint32> Vector2u;
 
 	template<typename T>
-	std::wofstream& operator<< (std::wofstream& out, const Vector2<T>& vec);
+	WideOStream& operator<< (WideOStream& out, const Vector2<T>& vec);
+
+	template<typename T>
+	MbOStream& operator<< (MbOStream& out, const Vector2<T>& vec);
 
 	template<typename T>
 	struct Vector2
@@ -31,14 +34,16 @@ namespace Math
 
 		static const Vector2 Zero;
 		static const Vector2 One;
+		static const Vector2 XAxis;
+		static const Vector2 YAxis;
 
 		Vector2(T x = Scalar<T>::Zero, T y = Scalar<T>::Zero) : X(x), Y(y) { }
 		Vector2(const T* arrData);
 		Vector2& operator=(const Vector2& rhs);
 		Vector2& operator=(const T* arrData);
 
-		inline bool operator==(const Vector2& rhs) const { return (X == rhs.X) && (Y == rhs.Y); }
-		inline bool operator!=(const Vector2& rhs) const { return (X != rhs.X) || (Y != rhs.Y); }
+		inline bool operator==(const Vector2& rhs) const { return Scalar<T>::Equal(X, rhs.X) && Scalar<T>::Equal(Y, rhs.Y); }
+		inline bool operator!=(const Vector2& rhs) const { return Scalar<T>::NotEqual(X, rhs.X) || Scalar<T>::NotEqual(Y, rhs.Y); }
 
 		inline Vector2 operator-() const { return Vector2(-X, -Y); }
 
@@ -63,9 +68,13 @@ namespace Math
 		Vector2 Normalized() const;
 		inline T Dot(const Vector2& rhs) const { return X * rhs.X + Y * rhs.Y; }
 		inline Vector2 Cross() const { return Vector2(Y, X); }
+		Vector2 Project(const Vector2& axis) const;
 
-		operator EtlString() const;
-		friend std::wofstream& operator<< <> (std::wofstream& out, const Vector2<T> & vec);
+		operator WideString() const;
+		friend WideOStream& operator<< <> (WideOStream& out, const Vector2<T>& vec);
+
+		operator MbString() const;
+		friend MbOStream& operator<< <> (MbOStream& out, const Vector2<T>& vec);
 	};
 }
 }

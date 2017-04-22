@@ -20,6 +20,9 @@
     <ClCompile Include="..\..\..\Driver\Types.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Driver\Math.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Driver\catch.hpp">
