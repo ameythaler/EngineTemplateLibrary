@@ -271,5 +271,8 @@
     <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp">
       <Filter>Private\Source\Memory</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

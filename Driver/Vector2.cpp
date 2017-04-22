@@ -329,7 +329,7 @@ SCENARIO("vector2 double math produces correct results", "[vector2d]")
 
 					WHEN("the dot product of the result and the x-axis is calculated")
 					{
-						float t = xCross.Dot(Vector2d::XAxis);
+						double t = xCross.Dot(Vector2d::XAxis);
 
 						THEN("the result should be 0")
 						{
@@ -380,6 +380,1030 @@ SCENARIO("vector2 double math produces correct results", "[vector2d]")
 	GIVEN("a normalized vector representing the x-axis")
 	{
 		Vector2d v = Vector2d::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2i32
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 32-bit signed integer math produces correct results", "[vector2i32]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2i32 a;
+		Vector2i32 b(2, 5);
+		Vector2i32 c(b);
+
+		REQUIRE(a == Vector2i32::Zero);
+		REQUIRE((b.X == 2 && b.Y == 5));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2i32(6, 2);
+			b = a + Vector2i32::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6 && a.Y == 2));
+				REQUIRE((b.X == 7 && b.Y == 3));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2i32::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1 && b.Y == 4));
+				REQUIRE(a == Vector2i32::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2;
+			b *= 2;
+			c = 2 * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2 && c.Y == b.Y * 2));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2i32(2, 3);
+			b *= Vector2i32(2, 3);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4 && a.Y == 15));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10 / b;
+			b /= 2;
+			c = c / 2;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 1 && b.Y == 2));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2i32(10, 10) / b;
+			b /= Vector2i32(1, 2);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 2 && b.Y == 2));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2i32 v = Vector2i32::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2u32
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 32-bit unsigned integer math produces correct results", "[vector2u32]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2u32 a;
+		Vector2u32 b(2u, 5u);
+		Vector2u32 c(b);
+
+		REQUIRE(a == Vector2u32::Zero);
+		REQUIRE((b.X == 2u && b.Y == 5u));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2u32(6u, 2u);
+			b = a + Vector2u32::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6u && a.Y == 2u));
+				REQUIRE((b.X == 7u && b.Y == 3u));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2u32::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1u && b.Y == 4u));
+				REQUIRE(a == Vector2u32::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2u;
+			b *= 2u;
+			c = 2u * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2u && c.Y == b.Y * 2u));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2u32(2u, 3u);
+			b *= Vector2u32(2u, 3u);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4u && a.Y == 15u));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10u / b;
+			b /= 2u;
+			c = c / 2u;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 1u && b.Y == 2u));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2u32(10u, 10u) / b;
+			b /= Vector2u32(1u, 2u);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 2u && b.Y == 2u));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2u32 v = Vector2u32::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2i64
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 64-bit signed integer math produces correct results", "[vector2i64]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2i64 a;
+		Vector2i64 b(2, 5);
+		Vector2i64 c(b);
+
+		REQUIRE(a == Vector2i64::Zero);
+		REQUIRE((b.X == 2 && b.Y == 5));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2i64(6, 2);
+			b = a + Vector2i64::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6 && a.Y == 2));
+				REQUIRE((b.X == 7 && b.Y == 3));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2i64::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1 && b.Y == 4));
+				REQUIRE(a == Vector2i64::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2;
+			b *= 2;
+			c = 2 * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2 && c.Y == b.Y * 2));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2i64(2, 3);
+			b *= Vector2i64(2, 3);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4 && a.Y == 15));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10 / b;
+			b /= 2;
+			c = c / 2;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 1 && b.Y == 2));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2i64(10, 10) / b;
+			b /= Vector2i64(1, 2);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 2 && b.Y == 2));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2i64 v = Vector2i64::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2u64
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 64-bit unsigned integer math produces correct results", "[vector2u64]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2u64 a;
+		Vector2u64 b(2u, 5u);
+		Vector2u64 c(b);
+
+		REQUIRE(a == Vector2u64::Zero);
+		REQUIRE((b.X == 2u && b.Y == 5u));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2u64(6u, 2u);
+			b = a + Vector2u64::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6u && a.Y == 2u));
+				REQUIRE((b.X == 7u && b.Y == 3u));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2u64::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1u && b.Y == 4u));
+				REQUIRE(a == Vector2u64::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2u;
+			b *= 2u;
+			c = 2u * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2u && c.Y == b.Y * 2u));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2u64(2u, 3u);
+			b *= Vector2u64(2u, 3u);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4u && a.Y == 15u));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10u / b;
+			b /= 2u;
+			c = c / 2u;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 1u && b.Y == 2u));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2u64(10u, 10u) / b;
+			b /= Vector2u64(1u, 2u);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 2u && b.Y == 2u));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2u64 v = Vector2u64::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2i16
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 16-bit signed integer math produces correct results", "[vector2i16]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2i16 a;
+		Vector2i16 b(2, 5);
+		Vector2i16 c(b);
+
+		REQUIRE(a == Vector2i16::Zero);
+		REQUIRE((b.X == 2 && b.Y == 5));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2i16(6, 2);
+			b = a + Vector2i16::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6 && a.Y == 2));
+				REQUIRE((b.X == 7 && b.Y == 3));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2i16::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1 && b.Y == 4));
+				REQUIRE(a == Vector2i16::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2;
+			b *= 2;
+			c = 2 * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2 && c.Y == b.Y * 2));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2i16(2, 3);
+			b *= Vector2i16(2, 3);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4 && a.Y == 15));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10 / b;
+			b /= 2;
+			c = c / 2;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 1 && b.Y == 2));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2i16(10, 10) / b;
+			b /= Vector2i16(1, 2);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 2 && b.Y == 2));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2i16 v = Vector2i16::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2u16
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 16-bit unsigned integer math produces correct results", "[vector2u16]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2u16 a;
+		Vector2u16 b(2u, 5u);
+		Vector2u16 c(b);
+
+		REQUIRE(a == Vector2u16::Zero);
+		REQUIRE((b.X == 2u && b.Y == 5u));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2u16(6u, 2u);
+			b = a + Vector2u16::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6u && a.Y == 2u));
+				REQUIRE((b.X == 7u && b.Y == 3u));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2u16::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1u && b.Y == 4u));
+				REQUIRE(a == Vector2u16::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2u;
+			b *= 2u;
+			c = 2u * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2u && c.Y == b.Y * 2u));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2u16(2u, 3u);
+			b *= Vector2u16(2u, 3u);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4u && a.Y == 15u));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10u / b;
+			b /= 2u;
+			c = c / 2u;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 1u && b.Y == 2u));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2u16(10u, 10u) / b;
+			b /= Vector2u16(1u, 2u);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 2u && b.Y == 2u));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2u16 v = Vector2u16::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2i8
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 8-bit signed integer math produces correct results", "[vector2i8]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2i8 a;
+		Vector2i8 b(2, 5);
+		Vector2i8 c(b);
+
+		REQUIRE(a == Vector2i8::Zero);
+		REQUIRE((b.X == 2 && b.Y == 5));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2i8(6, 2);
+			b = a + Vector2i8::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6 && a.Y == 2));
+				REQUIRE((b.X == 7 && b.Y == 3));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2i8::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1 && b.Y == 4));
+				REQUIRE(a == Vector2i8::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2;
+			b *= 2;
+			c = 2 * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2 && c.Y == b.Y * 2));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2i8(2, 3);
+			b *= Vector2i8(2, 3);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4 && a.Y == 15));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10 / b;
+			b /= 2;
+			c = c / 2;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 1 && b.Y == 2));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2i8(10, 10) / b;
+			b /= Vector2i8(1, 2);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5 && a.Y == 2));
+				REQUIRE((b.X == 2 && b.Y == 2));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2i8 v = Vector2i8::XAxis;
+
+		WHEN("the wide string representation of the vector is generated")
+		{
+			WideString str1 = v;
+			WideStringStream wStrStream;
+			wStrStream << v;
+			WideString str2 = wStrStream.str();
+			const WideString checkVal = L"<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+
+		WHEN("the multi-byte string representation of the vector is generated")
+		{
+			MbString str1 = v;
+			MbStringStream mbStrStream;
+			mbStrStream << v;
+			MbString str2 = mbStrStream.str();
+			const MbString checkVal = "<1, 0>";
+
+			THEN("the string representation should be accurate")
+			{
+				REQUIRE(str1 == checkVal);
+				REQUIRE(str2 == checkVal);
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Vector2u8
+//////////////////////////////////////////////////////////////////////////
+SCENARIO("vector2 8-bit unsigned integer math produces correct results", "[vector2u8]")
+{
+	GIVEN("three Vector2d objects")
+	{
+		Vector2u8 a;
+		Vector2u8 b(2u, 5u);
+		Vector2u8 c(b);
+
+		REQUIRE(a == Vector2u8::Zero);
+		REQUIRE((b.X == 2u && b.Y == 5u));
+		REQUIRE(a != b);
+		REQUIRE(c == b);
+
+		WHEN("vector addition is performed")
+		{
+			a += Vector2u8(6u, 2u);
+			b = a + Vector2u8::One;
+
+			THEN("the addition is performed correctly")
+			{
+				REQUIRE((a.X == 6u && a.Y == 2u));
+				REQUIRE((b.X == 7u && b.Y == 3u));
+			}
+		}
+
+		WHEN("vector subtraction is performed")
+		{
+			b -= Vector2u8::One;
+			a = c - b;
+
+			THEN("the subtraction is performed correctly")
+			{
+				REQUIRE((b.X == 1u && b.Y == 4u));
+				REQUIRE(a == Vector2u8::One);
+			}
+		}
+
+		WHEN("vector-scalar multiplication is performed")
+		{
+			a = b * 2u;
+			b *= 2u;
+			c = 2u * b;
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE(a == b);
+				REQUIRE((c.X == b.X * 2u && c.Y == b.Y * 2u));
+			}
+		}
+
+		WHEN("vector-vector multiplication is performed")
+		{
+			a = b * Vector2u8(2u, 3u);
+			b *= Vector2u8(2u, 3u);
+
+			THEN("the multiplication is performed correctly")
+			{
+				REQUIRE((a.X == 4u && a.Y == 15u));
+				REQUIRE(a == b);
+			}
+		}
+
+		WHEN("vector-scalar division is performed")
+		{
+			a = 10u / b;
+			b /= 2u;
+			c = c / 2u;
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 1u && b.Y == 2u));
+				REQUIRE(c == b);
+			}
+		}
+
+		WHEN("vector-vector division is performed")
+		{
+			a = Vector2u8(10u, 10u) / b;
+			b /= Vector2u8(1u, 2u);
+
+			THEN("the division is performed correctly")
+			{
+				REQUIRE((a.X == 5u && a.Y == 2u));
+				REQUIRE((b.X == 2u && b.Y == 2u));
+			}
+		}
+	}
+
+	GIVEN("a normalized vector representing the x-axis")
+	{
+		Vector2u8 v = Vector2u8::XAxis;
 
 		WHEN("the wide string representation of the vector is generated")
 		{

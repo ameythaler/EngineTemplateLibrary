@@ -31,6 +31,7 @@ namespace Math
 	Vector2<T>& Vector2<T>::operator =(const T* arrData)
 	{
 		memcpy(Data, arrData, sizeof(T) * 2);
+		return *this;
 	}
 
 	template<typename T>

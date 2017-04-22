@@ -8,16 +8,19 @@ namespace ETL
 namespace Math
 {
 	template<typename T> struct Vector2;
-	typedef Vector2<float> Vector2f;
-	typedef Vector2<double> Vector2d;
-	typedef Vector2<int32> Vector2i;
-	typedef Vector2<uint32> Vector2u;
 
 	template<typename T>
 	WideOStream& operator<< (WideOStream& out, const Vector2<T>& vec);
 
 	template<typename T>
 	MbOStream& operator<< (MbOStream& out, const Vector2<T>& vec);
+
+	// These two specialization keep the uint8 and int8 components from being interpreted as characters.
+	template<>
+	MbOStream& operator<< (MbOStream& out, const Vector2<uint8>& vec);
+
+	template<>
+	MbOStream& operator<< (MbOStream& out, const Vector2<int8>& vec);
 
 	template<typename T>
 	struct Vector2
@@ -45,7 +48,15 @@ namespace Math
 		inline bool operator==(const Vector2& rhs) const { return Scalar<T>::Equal(X, rhs.X) && Scalar<T>::Equal(Y, rhs.Y); }
 		inline bool operator!=(const Vector2& rhs) const { return Scalar<T>::NotEqual(X, rhs.X) || Scalar<T>::NotEqual(Y, rhs.Y); }
 
+		// Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
+		// TODO: Do the same for LLVM and GCC
+#if ETL_MSVC
+#pragma warning(disable:4146) 
+#endif // ETL_MSVC
 		inline Vector2 operator-() const { return Vector2(-X, -Y); }
+#if ETL_MSVC
+#pragma warning(default:4146)
+#endif // ETL_MSVC
 
 		inline Vector2 operator+(const Vector2& rhs) const { return Vector2(X + rhs.X, Y + rhs.Y); }
 		inline Vector2 operator-(const Vector2& rhs) const { return Vector2(X - rhs.X, Y - rhs.Y); }
@@ -76,6 +87,22 @@ namespace Math
 		operator MbString() const;
 		friend MbOStream& operator<< <> (MbOStream& out, const Vector2<T>& vec);
 	};
+
+#define ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(T, extension) typedef Vector2<T> Vector2 ## extension; \
+	extern template struct Vector2<T>
+
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(float, f);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(double, d);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int32, i32);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint32, u32);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int64, i64);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint64, u64);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int16, i16);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint16, u16);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int8, i8);
+	ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint8, u8);
+
+#undef ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC
 }
 }
 

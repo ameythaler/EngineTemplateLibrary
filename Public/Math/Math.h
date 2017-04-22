@@ -100,7 +100,8 @@ namespace Math
 		static const T Epsilon; \
 		static bool Equal(T lhs, T rhs); \
 		static bool NotEqual(T lhs, T rhs); \
-	}
+	}; \
+	extern template struct Scalar<T>
 
 	ETL_INTERNAL_EXPLICIT_DEC_SCALAR(float);
 	ETL_INTERNAL_EXPLICIT_DEC_SCALAR(double);
