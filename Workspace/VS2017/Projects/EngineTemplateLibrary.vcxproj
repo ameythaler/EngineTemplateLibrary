@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
+    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h" />
     <ClInclude Include="..\..\..\Public\Math\Math.h" />
     <ClInclude Include="..\..\..\Public\Math\Vector2.h" />
     <ClInclude Include="..\..\..\Public\Math\Vector2.hpp" />
