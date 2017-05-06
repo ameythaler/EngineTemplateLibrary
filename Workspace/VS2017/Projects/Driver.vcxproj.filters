@@ -29,6 +29,9 @@
     <ClCompile Include="..\..\..\Driver\SIMD.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Driver\Vector3.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Driver\catch.hpp">

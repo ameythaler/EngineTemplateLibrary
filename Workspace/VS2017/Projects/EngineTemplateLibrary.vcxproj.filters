@@ -185,6 +185,15 @@
     <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h">
       <Filter>Public\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector3.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector3.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -272,6 +281,9 @@
       <Filter>Private\Source\Memory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp">
       <Filter>Private\Source\Math</Filter>
     </ClCompile>
   </ItemGroup>

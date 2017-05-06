@@ -109,8 +109,7 @@ namespace SIMDMath
 		Vec4f multiplied = _mm_mul_ps(lhs, rhs);
 		Vec4f zwxy = _mm_movehl_ps(multiplied, multiplied);
 		Vec4f sum1 = _mm_add_ps(multiplied, zwxy);
-		Vec4f sumYW = ETL_INTERNAL_VEC4F_REPLICATE(sum1, 1);
-		Vec4f sum2 = _mm_add_ps(sum1, sumYW);
+		Vec4f sum2 = _mm_hadd_ps(sum1, sum1);
 		return ETL_INTERNAL_VEC4F_REPLICATE(sum2, 0);
 	}
 
@@ -127,6 +126,30 @@ namespace SIMDMath
 	inline Vec4f Vec4fNormalize(Vec4f vec)
 	{
 		return _mm_div_ps(vec, Vec4fLength(vec));
+	}
+
+	inline Vec4f Vec4fCross(Vec4f lhs, Vec4f rhs)
+	{
+		static const Vec4f negateY = _mm_set_ps(1, 1, -1, 1);
+		Vec4f lhsYXX = _mm_shuffle_ps(lhs, lhs, ETL_INTERNAL_VEC4F_MASK(1, 0, 0, 3));
+		Vec4f lhsZZY = _mm_shuffle_ps(lhs, lhs, ETL_INTERNAL_VEC4F_MASK(2, 2, 1, 3));
+		Vec4f rhsZZY = _mm_shuffle_ps(rhs, rhs, ETL_INTERNAL_VEC4F_MASK(2, 2, 1, 3));
+		Vec4f rhsYXX = _mm_shuffle_ps(rhs, rhs, ETL_INTERNAL_VEC4F_MASK(1, 0, 0, 3));
+		Vec4f lhMul = _mm_mul_ps(lhsYXX, rhsZZY);
+		Vec4f rhMul = _mm_mul_ps(lhsZZY, rhsYXX);
+		Vec4f retVal = _mm_sub_ps(lhMul, rhMul);
+		return _mm_mul_ps(retVal, negateY);
+	}
+
+	inline Vec4f Vec4fEqualVec(Vec4f lhs, Vec4f rhs)
+	{
+		return _mm_cmpeq_ps(lhs, rhs);
+	}
+
+	inline Vec4f Vec4fNegate(Vec4f vec)
+	{
+		static const Vec4f negate = _mm_set_ps1(-1.0f);
+		return _mm_mul_ps(vec, negate);
 	}
 }
 }
