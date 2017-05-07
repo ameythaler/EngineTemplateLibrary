@@ -2,7 +2,6 @@
 
 #include "Math/Math.h"
 #include "Utility/Macros.h"
-#include "Math/Vector2.h"
 
 // Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
 // TODO: Do the same for LLVM and GCC

@@ -194,6 +194,12 @@
     <ClInclude Include="..\..\..\Public\Math\Vector3.hpp">
       <Filter>Public\Math</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector4.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector4.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
@@ -284,6 +290,9 @@
       <Filter>Private\Source\Math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector4.cpp">
       <Filter>Private\Source\Math</Filter>
     </ClCompile>
   </ItemGroup>

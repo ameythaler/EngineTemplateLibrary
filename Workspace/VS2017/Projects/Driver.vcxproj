@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\..\Driver\Types.cpp" />
     <ClCompile Include="..\..\..\Driver\Vector2.cpp" />
     <ClCompile Include="..\..\..\Driver\Vector3.cpp" />
+    <ClCompile Include="..\..\..\Driver\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="EngineTemplateLibrary.vcxproj">

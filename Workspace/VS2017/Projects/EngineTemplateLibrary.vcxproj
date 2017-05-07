@@ -36,6 +36,8 @@
     <ClInclude Include="..\..\..\Public\Math\Vector2.hpp" />
     <ClInclude Include="..\..\..\Public\Math\Vector3.h" />
     <ClInclude Include="..\..\..\Public\Math\Vector3.hpp" />
+    <ClInclude Include="..\..\..\Public\Math\Vector4.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector4.hpp" />
     <ClInclude Include="..\..\..\Public\Memory\MemHeap.h" />
     <ClInclude Include="..\..\..\Public\Memory\MemHeap.hpp" />
     <ClInclude Include="..\..\..\Public\Memory\MemPool.h" />
@@ -82,6 +84,7 @@
     <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector4.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Memory\MemHeap.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Memory\MemStack.cpp" />
