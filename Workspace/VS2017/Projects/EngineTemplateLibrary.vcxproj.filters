@@ -185,9 +185,6 @@
     <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h">
       <Filter>Public\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h">
-      <Filter>Public</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Public\Math\Vector3.h">
       <Filter>Public\Math</Filter>
     </ClInclude>
@@ -198,6 +195,9 @@
       <Filter>Public\Math</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Public\Math\Vector4.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h">
       <Filter>Public\Math</Filter>
     </ClInclude>
   </ItemGroup>
