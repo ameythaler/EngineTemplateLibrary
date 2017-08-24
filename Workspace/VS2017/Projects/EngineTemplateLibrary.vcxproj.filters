@@ -128,6 +128,9 @@
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h">
       <Filter>Public\Filesystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\LogStream.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\Public\Threading\Thread.h">
       <Filter>Public\Threading</Filter>
     </ClInclude>
@@ -145,6 +148,57 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h">
       <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector2.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector2.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector3.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector3.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector4.h">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\Vector4.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h">
+      <Filter>Public\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +256,9 @@
     <ClCompile Include="..\..\..\Private\Source\Filesystem\BaseFile.cpp">
       <Filter>Private\Source\Filesystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Utility\LogStream.cpp">
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Threading\Thread_Std.cpp">
       <Filter>Private\Source\Threading</Filter>
     </ClCompile>
@@ -213,6 +270,30 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp">
       <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemStack.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemHeap.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp">
+      <Filter>Private\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector4.cpp">
+      <Filter>Private\Source\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

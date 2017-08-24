@@ -48,3 +48,5 @@ className& operator=(const className&) = delete;\
 className& operator=(className&&) = delete
 
 #define ETL_IMPLEMENT_SINGLETON(className) className className::sm_Instance
+
+#define ETL_CAT(lhs, rhs) lhs ## rhs

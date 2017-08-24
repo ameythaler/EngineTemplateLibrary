@@ -30,7 +30,20 @@
     <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
+    <ClInclude Include="..\..\..\Public\Math\SIMDMath.h" />
     <ClInclude Include="..\..\..\Public\Math\Math.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector2.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector2.hpp" />
+    <ClInclude Include="..\..\..\Public\Math\Vector3.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector3.hpp" />
+    <ClInclude Include="..\..\..\Public\Math\Vector4.h" />
+    <ClInclude Include="..\..\..\Public\Math\Vector4.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemHeap.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemPool.hpp" />
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.h" />
+    <ClInclude Include="..\..\..\Public\Memory\MemStack.hpp" />
     <ClInclude Include="..\..\..\Public\Memory\MemTrack.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h" />
     <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp" />
@@ -38,6 +51,9 @@
     <ClInclude Include="..\..\..\Public\Threading\Mutex.h" />
     <ClInclude Include="..\..\..\Public\Threading\Mutex_Msvc.h" />
     <ClInclude Include="..\..\..\Public\Threading\Mutex_Std.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Msvc.h" />
+    <ClInclude Include="..\..\..\Public\Threading\RecursiveMutex_Std.h" />
     <ClInclude Include="..\..\..\Public\Threading\ScopeLock.h" />
     <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h" />
     <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h" />
@@ -51,8 +67,10 @@
     <ClInclude Include="..\..\..\Public\Utility\DateTime.h" />
     <ClInclude Include="..\..\..\Public\Utility\Hash.h" />
     <ClInclude Include="..\..\..\Public\Utility\Logger.h" />
+    <ClInclude Include="..\..\..\Public\Utility\LogStream.h" />
     <ClInclude Include="..\..\..\Public\Utility\Macros.h" />
     <ClInclude Include="..\..\..\Public\Utility\Platform.h" />
+    <ClInclude Include="..\..\..\Public\Utility\TemplateMetaProgramming.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer_Posix.h" />
     <ClInclude Include="..\..\..\Public\Utility\Timer_Win.h" />
@@ -64,10 +82,18 @@
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Math\Vector4.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemHeap.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemPool.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemStack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp" />
     <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Msvc.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\Mutex_Std.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Msvc.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Threading\RecursiveMutex_Std.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\ScopeLock.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp" />
@@ -81,6 +107,7 @@
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Timer_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Utility\LogStream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

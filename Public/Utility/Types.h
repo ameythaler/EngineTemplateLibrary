@@ -3,6 +3,7 @@
 #include "Utility/Platform.h"
 #include "STLExtensions/extended_string.h"
 #include "Memory/MemTrack.h"
+#include "Utility/Macros.h"
 #include <inttypes.h>
 #include <wchar.h>
 #include <sstream>
@@ -21,16 +22,24 @@ namespace ETL
 	typedef std::basic_string<char16_t> Wide16String;
 	typedef std::basic_stringstream<char> MbStringStream;
 	typedef std::basic_stringstream<wchar_t> WideStringStream;
+	typedef std::basic_ostream<char> MbOStream;
+	typedef std::basic_ostream<wchar_t> WideOStream;
+	typedef std::basic_stringbuf<char> MbStringBuf;
+	typedef std::basic_stringbuf<wchar_t> WideStringBuf;
 
 #if ETL_UNICODE
 	typedef WideString EtlString;
 	typedef WideStringStream EtlStringStream;
 	typedef wchar_t EtlChar;
-#define ETL_TEXT(x) L##x
+	typedef WideOStream EtlOStream;
+	typedef WideStringBuf EtlStringBuf;
+#define ETL_TEXT(x) ETL_CAT(L, x)
 #else
 	typedef MbString EtlString;
 	typedef MbString EtlStringStream;
 	typedef char EtlChar;
+	typedef MbOStream EtlOStream;
+	typedef MbStringBuf EtlStringBuf;
 #define ETL_TEXT(x) x
 #endif // ETL_UNICODE
 
@@ -74,7 +83,7 @@ namespace ETL
 		char* Ptr;
 
 		LocalCharPtr() : Ptr(nullptr) { }
-		LocalCharPtr(unsigned int size) { Ptr = ETL_NEW("ETL:Core:LocalCharPtr:Ptr") char[size]; }
+		LocalCharPtr(unsigned int size) { Ptr = ETL_NEW("ETL::LocalCharPtr:Ptr") char[size]; }
 		LocalCharPtr(const EtlString& str);
 		~LocalCharPtr() { ETL_DELETE[] Ptr; }
 		operator char*() { return Ptr; }
