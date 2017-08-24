@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Public">
+      <UniqueIdentifier>{bb015014-fa6b-4c92-b52b-1e05a8ed1746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{a048667e-0219-477c-ab41-5881a1a6bf58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source">
+      <UniqueIdentifier>{1e58fac9-1f5e-4f7a-bced-ab72a269c1ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Headers">
+      <UniqueIdentifier>{d30bb067-c84d-441c-8529-e4c60390de0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Utility">
+      <UniqueIdentifier>{e171fae5-215e-41ad-8793-7d9a0e5e26e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Threading">
+      <UniqueIdentifier>{ff4e988c-8957-403c-869e-0eefb5ac926c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Memory">
+      <UniqueIdentifier>{ac714664-e759-4f76-b29f-3eb9416f59a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\STLExtensions">
+      <UniqueIdentifier>{8146fda5-c492-4b55-a793-bba14c4cab0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Utility">
+      <UniqueIdentifier>{ae01edb1-7fd8-4c04-b17e-4812aa48c955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Threading">
+      <UniqueIdentifier>{fc6baeb9-d17b-4aae-99d4-6fa5d7dc4538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\Memory">
+      <UniqueIdentifier>{09f9924e-f6d9-4139-88e7-70fa4f4af9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Source\STLExtensions">
+      <UniqueIdentifier>{ef903098-bf55-4352-b039-359eb7ff9e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Headers\Memory">
+      <UniqueIdentifier>{75b03d78-af08-4eb2-b3b9-5f65a81b4cb6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Public\Utility\Hash.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Platform.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Utility\Types.h">
+      <Filter>Public\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Msvc.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Threading\SimpleMutex_Std.h">
+      <Filter>Public\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\Memory\MemTrack.h">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.h">
+      <Filter>Public\STLExtensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Public\STLExtensions\extended_string.hpp">
+      <Filter>Public\STLExtensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h">
+      <Filter>Private\Headers\Memory</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Private\Source\Utility\Types.cpp">
+      <Filter>Private\Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Msvc.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Threading\SimpleMutex_Std.cpp">
+      <Filter>Private\Source\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\Memory\MemTrack.cpp">
+      <Filter>Private\Source\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Private\Source\STLExtensions\extended_string.cpp">
+      <Filter>Private\Source\STLExtensions</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
