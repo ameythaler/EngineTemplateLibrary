@@ -20,6 +20,18 @@ namespace Math
 	typedef Scalar<int8> Scalari8;
 	typedef Scalar<uint8> Scalaru8;
 
+#define ETL_INTERNAL_TRIG(x, y) inline float x(float val) { return y ## f(val); } \
+	inline double x(double val) { return y(val); }
+
+	ETL_INTERNAL_TRIG(Sin, sin)
+	ETL_INTERNAL_TRIG(Cos, cos)
+	ETL_INTERNAL_TRIG(Tan, tan)
+	ETL_INTERNAL_TRIG(ASin, asin)
+	ETL_INTERNAL_TRIG(ACos, acos)
+	ETL_INTERNAL_TRIG(ATan, atan)
+
+#undef ETL_INTERNAL_TRIG
+
 	inline float Abs(float val) { return abs(val); }
 	inline double Abs(double val) { return abs(val); }
 
@@ -87,6 +99,8 @@ namespace Math
 	{
 		static const T Zero;
 		static const T One;
+		static const T Two;
+		static const T Four;
 		static const T Epsilon;
 		static bool Equal(T lhs, T rhs);
 		static bool NotEqual(T lhs, T rhs);
@@ -97,6 +111,8 @@ namespace Math
 	{ \
 		static const T Zero; \
 		static const T One; \
+		static const T Two; \
+		static const T Four; \
 		static const T Epsilon; \
 		static bool Equal(T lhs, T rhs); \
 		static bool NotEqual(T lhs, T rhs); \

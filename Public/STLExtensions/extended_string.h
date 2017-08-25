@@ -2,7 +2,7 @@
 
 #include "Utility/Platform.h"
 
-#include <string>
+#include <string.h>
 #include <vector>
 
 // Readability Macros

@@ -4,7 +4,7 @@
 #include "Utility/Macros.h"
 
 // Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
-// TODO: Do the same for LLVM and GCC
+// #TODO: Do the same for LLVM and GCC
 #if ETL_MSVC
 #pragma warning(disable:4146) 
 #endif // ETL_MSVC
