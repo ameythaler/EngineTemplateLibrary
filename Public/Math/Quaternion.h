@@ -24,11 +24,11 @@ namespace ETL
 		MbOStream& operator<< (MbOStream& out, const Quaternion<T>& rhs);
 
 		template<typename T>
-		struct Quaternion
+		struct ETL_ALIGN(16) Quaternion
 		{
 			union
 			{
-				ETL_ALIGN(16) T Data[4];
+				T Data[4];
 				struct
 				{
 					T X;
@@ -36,6 +36,7 @@ namespace ETL
 					T Z;
 					T W;
 				};
+				Vector3<T> Vec;
 			};
 
 			static const Quaternion Identity;
@@ -48,9 +49,7 @@ namespace ETL
 
 			inline bool operator==(const Quaternion& rhs) const { return Scalar<T>::Equal(X, rhs.X) && Scalar<T>::Equal(Y, rhs.Y) && Scalar<T>::Equal(Z, rhs.Z) && Scalar<T>::Equal(W, rhs.W); }
 			inline bool operator!=(const Quaternion& rhs) const { return Scalar<T>::NotEqual(X, rhs.X) || Scalar<T>::NotEqual(Y, rhs.Y) || Scalar<T>::NotEqual(Z, rhs.Z) || Scalar<T>::NotEqual(W, rhs.W); }
-
 			inline Quaternion operator-() const { return Quaternion(-X, -Y, -Z, -W); }
-
 			inline Quaternion operator+(const Quaternion& rhs) const { return Quaternion(X + rhs.X, Y + rhs.Y, Z + rhs.Z, W + rhs.W); }
 			inline Quaternion operator-(const Quaternion& rhs) const { return Quaternion(X - rhs.X, Y - rhs.Y, Z - rhs.Z, W - rhs.W); }
 			inline Quaternion operator*(T rhs) const { return Quaternion(X * rhs, Y * rhs, Z * rhs, W * rhs); }
@@ -70,7 +69,7 @@ namespace ETL
 			inline T LengthSq() const { return X * X + Y * Y + Z * Z + W * W; }
 			Quaternion& Normalize();
 			Quaternion Normalized() const;
-			Quaternion& Conjugate();
+			inline Quaternion& Conjugate() { Vec = -Vec; return *this; }
 			inline Quaternion Conjugated() const { return Quaternion(-X, -Y, -Z, W); }
 			inline T Dot(const Quaternion& rhs) const { return X * rhs.X + Y * rhs.Y + Z * rhs.Z + W * rhs.W; }
 

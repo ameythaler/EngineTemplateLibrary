@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Math/Math.h"
+#include "Math/Vector2.h"
+#include "Math/Vector3.h"
 #include "Utility/Macros.h"
 
 // Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
@@ -29,11 +31,11 @@ namespace ETL
 		MbOStream& operator<< (MbOStream& out, const Vector4<int8>& vec);
 
 		template<typename T>
-		struct Vector4
+		struct ETL_ALIGN(16) Vector4
 		{
 			union
 			{
-				ETL_ALIGN(16) T Data[4];
+				T Data[4];
 				struct
 				{
 					T X;
@@ -41,6 +43,8 @@ namespace ETL
 					T Z;
 					T W;
 				};
+				Vector2<T> XY;
+				Vector3<T> XYZ;
 			};
 
 			static const Vector4 Zero;

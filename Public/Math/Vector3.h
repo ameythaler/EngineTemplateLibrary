@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Math/Math.h"
+#include "Math/Vector2.h"
 #include "Utility/Macros.h"
 
 // Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
-// TODO: Do the same for LLVM and GCC
+// #TODO: Do the same for LLVM and GCC
 #if ETL_MSVC
 #pragma warning(disable:4146) 
 #endif // ETL_MSVC
@@ -29,17 +30,18 @@ namespace ETL
 		MbOStream& operator<< (MbOStream& out, const Vector3<int8>& vec);
 
 		template<typename T>
-		struct Vector3
+		struct ETL_ALIGN(16) Vector3
 		{
 			union
 			{
-				ETL_ALIGN(16) T Data[3];
+				T Data[3];
 				struct
 				{
 					T X;
 					T Y;
 					T Z;
 				};
+				Vector2<T> XY;
 			};
 
 			static const Vector3 Zero;

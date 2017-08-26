@@ -3,6 +3,12 @@
 #include "Math/Math.h"
 #include "Utility/Macros.h"
 
+// Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
+// #TODO: Do the same for LLVM and GCC
+#if ETL_MSVC
+#pragma warning(disable:4146) 
+#endif // ETL_MSVC
+
 namespace ETL
 {
 namespace Math
@@ -23,11 +29,11 @@ namespace Math
 	MbOStream& operator<< (MbOStream& out, const Vector2<int8>& vec);
 
 	template<typename T>
-	struct Vector2
+	struct ETL_ALIGN(16) Vector2
 	{
 		union
 		{
-			ETL_ALIGN(16) T Data[2];
+			T Data[2];
 			struct
 			{
 				T X;
@@ -47,17 +53,7 @@ namespace Math
 
 		inline bool operator==(const Vector2& rhs) const { return Scalar<T>::Equal(X, rhs.X) && Scalar<T>::Equal(Y, rhs.Y); }
 		inline bool operator!=(const Vector2& rhs) const { return Scalar<T>::NotEqual(X, rhs.X) || Scalar<T>::NotEqual(Y, rhs.Y); }
-
-		// Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
-		// TODO: Do the same for LLVM and GCC
-#if ETL_MSVC
-#pragma warning(disable:4146) 
-#endif // ETL_MSVC
 		inline Vector2 operator-() const { return Vector2(-X, -Y); }
-#if ETL_MSVC
-#pragma warning(default:4146)
-#endif // ETL_MSVC
-
 		inline Vector2 operator+(const Vector2& rhs) const { return Vector2(X + rhs.X, Y + rhs.Y); }
 		inline Vector2 operator-(const Vector2& rhs) const { return Vector2(X - rhs.X, Y - rhs.Y); }
 		inline Vector2 operator*(T rhs) const { return Vector2(X * rhs, Y * rhs); }
@@ -107,3 +103,7 @@ namespace Math
 }
 
 #include "Vector2.hpp"
+
+#if ETL_MSVC
+#pragma warning(default:4146)
+#endif // ETL_MSVC

@@ -103,15 +103,6 @@ namespace ETL
 		}
 
 		template<typename T>
-		Quaternion<T>& Quaternion<T>::Conjugate()
-		{
-			X = -X;
-			Y = -Y;
-			Z = -Z;
-			return *this;
-		}
-
-		template<typename T>
 		T Quaternion<T>::AxisAngle(Vector3<T>& outAxis) const
 		{
 			T cosA = W;

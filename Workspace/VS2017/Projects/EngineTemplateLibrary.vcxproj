@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\..\Private\Headers\Memory\InternalAllocator.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
+    <ClInclude Include="..\..\..\Public\Math\Matrix4x4.h" />
     <ClInclude Include="..\..\..\Public\Math\Quaternion.h" />
     <ClInclude Include="..\..\..\Public\Math\Quaternion.hpp" />
     <ClInclude Include="..\..\..\Public\Math\SIMDMath.h" />
