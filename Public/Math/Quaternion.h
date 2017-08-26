@@ -58,13 +58,13 @@ namespace ETL
 			inline Quaternion operator/(T rhs) const { return Quaternion(X / rhs, Y / rhs, Z / rhs, W / rhs); }
 			inline friend Quaternion operator/(T lhs, const Quaternion<T>& rhs) { return Quaternion<T>(lhs / rhs.X, lhs / rhs.Y, lhs / rhs.Z, lhs / rhs.W); }
 			Quaternion operator*(const Quaternion& rhs) const;
-			inline Quaternion operator/(const Quaternion& rhs) const { return Quaternion(X / rhs.X, Y / rhs.Y, Z / rhs.Z, W / rhs.W); }
+			Quaternion operator/(const Quaternion& rhs) const;
 			inline Quaternion& operator+=(const Quaternion& rhs) { X += rhs.X; Y += rhs.Y; Z += rhs.Z; W += rhs.W; return *this; }
 			inline Quaternion& operator-=(const Quaternion& rhs) { X -= rhs.X; Y -= rhs.Y; Z -= rhs.Z; W -= rhs.W; return *this; }
 			inline Quaternion& operator*=(T rhs) { X *= rhs; Y *= rhs; Z *= rhs; W *= rhs; return *this; }
 			inline Quaternion& operator/=(T rhs) { X /= rhs; Y /= rhs; Z /= rhs; W /= rhs; return *this; }
 			Quaternion& operator*=(const Quaternion& rhs);
-			inline Quaternion& operator/=(const Quaternion& rhs) { X /= rhs.X; Y /= rhs.Y; Z /= rhs.Z; W /= rhs.W; return *this; }
+			Quaternion& operator/=(const Quaternion& rhs);
 
 			inline T Length() const { return Sqrt(X * X + Y * Y + Z * Z + W * W); }
 			inline T LengthSq() const { return X * X + Y * Y + Z * Z + W * W; }

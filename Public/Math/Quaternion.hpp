@@ -51,12 +51,38 @@ namespace ETL
 		}
 
 		template<typename T>
+		Quaternion<T> Quaternion<T>::operator/(const Quaternion<T>& rhs) const
+		{
+			T lenSq = rhs.LengthSq();
+			T w = (rhs.W * W + rhs.X * X + rhs.Y * Y + rhs.Z * Z) / lenSq;
+			T x = (rhs.W * X - rhs.X * W - rhs.Y * Z + rhs.Z * Y) / lenSq;
+			T y = (rhs.W * Y + rhs.X * Z - rhs.Y * W - rhs.Z * X) / lenSq;
+			T z = (rhs.W * Z + rhs.X * Y + rhs.Y * X - rhs.Z * W) / lenSq;
+			return Quaternion<T>(x, y, z, w);
+		}
+
+		template<typename T>
 		Quaternion<T>& Quaternion<T>::operator*=(const Quaternion<T>& rhs)
 		{
 			T x = W * rhs.X + X * rhs.W + Y * rhs.Z - Z * rhs.Y;
 			T y = W * rhs.Y + Y * rhs.W + Z * rhs.X - X * rhs.Z;
 			T z = W * rhs.Z + Z * rhs.W + X * rhs.Y - Y * rhs.X;
 			T w = W * rhs.W - X * rhs.X - Y * rhs.Y - Z * rhs.Z;
+			X = x;
+			Y = y;
+			Z = z;
+			W = w;
+			return *this;
+		}
+
+		template<typename T>
+		Quaternion<T>& Quaternion<T>::operator/=(const Quaternion<T>& rhs)
+		{
+			T lenSq = rhs.LengthSq();
+			T w = (rhs.W * W + rhs.X * X + rhs.Y * Y + rhs.Z * Z) / lenSq;
+			T x = (rhs.W * X - rhs.X * W - rhs.Y * Z + rhs.Z * Y) / lenSq;
+			T y = (rhs.W * Y + rhs.X * Z - rhs.Y * W - rhs.Z * X) / lenSq;
+			T z = (rhs.W * Z + rhs.X * Y + rhs.Y * X - rhs.Z * W) / lenSq;
 			X = x;
 			Y = y;
 			Z = z;
