@@ -18,10 +18,10 @@ namespace ETL
 		template<typename T> struct Quaternion;
 
 		template<typename T>
-		WideOStream& operator<< (WideOStream& out const Quaternion<T>& rhs);
+		WideOStream& operator<< (WideOStream& out, const Quaternion<T>& rhs);
 
 		template<typename T>
-		MbOStream& operator<< (MbOStream& out const Quaternion<T>& rhs);
+		MbOStream& operator<< (MbOStream& out, const Quaternion<T>& rhs);
 
 		template<typename T>
 		struct Quaternion
@@ -93,6 +93,8 @@ namespace ETL
 #undef ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC
 	}
 }
+
+#include "Quaternion.hpp"
 
 #if ETL_MSVC
 #pragma warning(default:4146)

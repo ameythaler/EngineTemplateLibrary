@@ -99,7 +99,7 @@ namespace ETL
 		}
 
 		template<typename T>
-		Vector4<T> AxisAngle() const
+		Vector4<T> Quaternion<T>::AxisAngle() const
 		{
 			T cosA = W;
 			T angle = ACos(cosA) * Scalar<T>::Two;

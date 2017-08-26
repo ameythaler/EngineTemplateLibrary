@@ -32,5 +32,5 @@ namespace ETL
 	ETL_INTERNAL_EXPLICIT_DEF_SCALAR(uint8, 0u, 1u, 2u, 4u, 0u);
 
 #undef ETL_INTERNAL_EXPLICIT_DEF_SCALAR
-}
+	}
 }

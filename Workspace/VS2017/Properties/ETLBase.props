@@ -7,7 +7,7 @@
     <ETL_Bin_Base>ETL</ETL_Bin_Base>
   </PropertyGroup>
   <PropertyGroup>
-    <IncludePath>..\..\..\Public;..\..\..\Private\Headers$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>..\..\..\Public;..\..\..\Private\Headers;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup>

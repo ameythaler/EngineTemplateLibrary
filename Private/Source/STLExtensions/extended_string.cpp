@@ -1,5 +1,5 @@
 #include "STLExtensions/extended_string.h"
-#include <locale.h>
+#include <locale>
 
 namespace ETL
 {
