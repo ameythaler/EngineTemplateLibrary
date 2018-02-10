@@ -55,7 +55,7 @@ namespace ETL
 
 			Vector4(T x = Scalar<T>::Zero, T y = Scalar<T>::Zero, T z = Scalar<T>::Zero, T w = Scalar<T>::Zero) : X(x), Y(y), Z(z), W(w) { }
 			Vector4(const T* arrData);
-			Vector4& operator=(const Vector4& rhs);
+			Vector4& operator=(const Vector4& rhs); // #TODO I don't think I need this
 			Vector4& operator=(const T* arrData);
 
 			inline bool operator==(const Vector4& rhs) const { return Scalar<T>::Equal(X, rhs.X) && Scalar<T>::Equal(Y, rhs.Y) && Scalar<T>::Equal(Z, rhs.Z) && Scalar<T>::Equal(W, rhs.W); }

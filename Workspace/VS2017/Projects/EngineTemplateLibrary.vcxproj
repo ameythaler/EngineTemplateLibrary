@@ -31,6 +31,7 @@
     <ClInclude Include="..\..\..\Public\Filesystem\BaseFile.h" />
     <ClInclude Include="..\..\..\Public\Filesystem\Directory.h" />
     <ClInclude Include="..\..\..\Public\Math\Matrix4x4.h" />
+    <ClInclude Include="..\..\..\Public\Math\Matrix4x4.hpp" />
     <ClInclude Include="..\..\..\Public\Math\Quaternion.h" />
     <ClInclude Include="..\..\..\Public\Math\Quaternion.hpp" />
     <ClInclude Include="..\..\..\Public\Math\SIMDMath.h" />
@@ -85,6 +86,7 @@
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Posix.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Filesystem\Directory_Win.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Math.cpp" />
+    <ClCompile Include="..\..\..\Private\Source\Math\Matrix4x4.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Quaternion.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Vector2.cpp" />
     <ClCompile Include="..\..\..\Private\Source\Math\Vector3.cpp" />
