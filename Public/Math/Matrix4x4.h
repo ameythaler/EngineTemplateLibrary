@@ -2,6 +2,7 @@
 
 #include "Math/Math.h"
 #include "Math/Vector4.h"
+#include "Math/Vector3.h"
 #include "Utility/Macros.h"
 
 // Disable the warning about negating unsigned values - that it doesn't do anything is expected behavior.
@@ -60,11 +61,25 @@ namespace ETL
 				, T m20 = Scalar<T>::Zero, T m21 = Scalar<T>::Zero, T m22 = Scalar<T>::One, T m23 = Scalar<T>::Zero
 				, T m30 = Scalar<T>::Zero, T m31 = Scalar<T>::Zero, T m32 = Scalar<T>::Zero, T m33 = Scalar<T>::One);
 			Matrix4x4(const Vector4<T>& x, const Vector4<T>& y, const Vector4<T>& z, const Vector4<T>& w);
-			Matrix4x4(const T* arrData);
-			Matrix4x4& operator=(const T* arrData);
+			inline Matrix4x4(const T* arrData) { memcpy(Data, arrData, sizeof(T) * 16); }
+			inline Matrix4x4& operator=(const T* arrData) { memcpy(Data, arrData, sizeof(T) * 16); return *this; }
 
-			Matrix4x4 operator+(const Matrix4x4& rhs) const;
-			Matrix4x4 operator-(const Matrix4x4& rhs) const;
+			inline bool operator==(const Matrix4x4& rhs) const { return X == rhs.X && Y == rhs.Y && Z == rhs.Z && W == rhs.W; }
+			inline bool operator!=(const Matrix4x4& rhs) const { return X != rhs.X || Y != rhs.Y || Z != rhs.Z || W != rhs.Z; }
+
+			inline Matrix4x4 operator+(const Matrix4x4& rhs) const { return Matrix4x4(X + rhs.X, Y + rhs.Y, Z + rhs.Z, W + rhs.W); }
+			inline Matrix4x4 operator-(const Matrix4x4& rhs) const { return Matrix4x4(X - rhs.X, Y - rhs.Y, Z - rhs.Z, W - rhs.W); }
+			inline Matrix4x4 operator*(T rhs) const { return Matrix4x4(X * rhs, Y * rhs, Z * rhs, W * rhs); }
+			Matrix4x4 operator*(const Matrix4x4& rhs) const;
+			inline Matrix4x4 operator/(T rhs) const { return Matrix4x4(X / rhs, Y / rhs, Z / rhs, W / rhs); }
+
+			inline Matrix4x4 MultiplyComponents(const Matrix4x4& rhs) const { return Matrix4x4(X * rhs.X, Y * rhs.Y, Z * rhs.Z, W * rhs.W); }
+			inline Matrix4x4 DivideComponents(const Matrix4x4& rhs) const { return Matrix4x4(X / rhs.X, Y / rhs.Y, Z / rhs.Z, W / rhs.W); }
+
+			static Matrix4x4 MakeTranslation(const Vector3<T>& translation);
+			static Matrix4x4 MakeRotationX(T radians);
+			static Matrix4x4 MakeRotationY(T radians);
+			static Matrix4x4 MakeRotationZ(T radians);
 
 			operator WideString() const;
 			friend WideOStream& operator<< <> (WideOStream& out, const Matrix4x4<T>& mat);
@@ -78,14 +93,6 @@ namespace ETL
 
 		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(float, f);
 		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(double, d);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int32, i32);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint32, u32);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int64, i64);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint64, u64);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int16, i16);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint16, u16);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(int8, i8);
-		ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC(uint8, u8);
 
 #undef ETL_INTERNAL_EXPLICIT_SPEC_INST_DEC
 	}

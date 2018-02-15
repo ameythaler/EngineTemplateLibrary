@@ -41,29 +41,57 @@ namespace ETL
 			W = w;
 		}
 
+#define ETL_INTERNAL_DOT(r, c, rhs) r.X * rhs.M0 ## c + r.Y * rhs.M1 ## c + r.Z * rhs.M2 ## c + r.W * rhs.M3 ## c
+#define ETL_INTERNAL_MUL_ROW(v, rhs) ETL_INTERNAL_DOT(v, 0, rhs), ETL_INTERNAL_DOT(v, 1, rhs), ETL_INTERNAL_DOT(v, 2, rhs), ETL_INTERNAL_DOT(v, 3, rhs)
+
 		template<typename T>
-		Matrix4x4<T>::Matrix4x4(const T* arrData)
+		Matrix4x4<T> Matrix4x4<T>::operator*(const Matrix4x4<T>& rhs) const
 		{
-			memcpy(Data, arrData, sizeof(T) * 16);
+			return Matrix4x4<T>(ETL_INTERNAL_MUL_ROW(X, rhs), ETL_INTERNAL_MUL_ROW(Y, rhs), ETL_INTERNAL_MUL_ROW(Z, rhs), ETL_INTERNAL_MUL_ROW(W, rhs));
+		}
+
+#undef ETL_INTERNAL_MUL_ROW
+#undef ETL_INTERNAL_DOT
+
+		template<typename T>
+		Matrix4x4<T> Matrix4x4<T>::MakeTranslation(const Vector3<T>& translation)
+		{
+			Matrix4x4<T> retVal;
+			retVal.W.XYZ = translation;
+			return retVal;
 		}
 
 		template<typename T>
-		Matrix4x4<T>& Matrix4x4<T>::operator=(const T* arrData)
+		Matrix4x4<T> Matrix4x4<T>::MakeRotationX(T radians)
 		{
-			memcpy(Data, arrData, sizeof(T) * 16);
-			return *this;
+			Matrix4x4<T> retVal;
+			retVal.M11 = Cos(radians);
+			retVal.M12 = Sin(radians);
+			retVal.M21 = -Sin(radians);
+			retVal.M22 = Cos(radians);
+			return retVal;
 		}
 
 		template<typename T>
-		Matrix4x4<T> Matrix4x4<T>::operator+(const Matrix4x4<T>& rhs) const
+		Matrix4x4<T> Matrix4x4<T>::MakeRotationY(T radians)
 		{
-			return Matrix4x4<T>(X + rhs.X, Y + rhs.Y, Z + rhs.Z, W + rhs.W);
+			Matrix4x4<T> retVal;
+			retVal.M00 = Cos(radians);
+			retVal.M02 = -Sin(radians);
+			retVal.M20 = Sin(radians);
+			retVal.M22 = Cos(radians);
+			return retVal;
 		}
 
 		template<typename T>
-		Matrix4x4<T> Matrix4x4<T>::operator-(const Matrix4x4<T>& rhs) const
+		Matrix4x4<T> Matrix4x4<T>::MakeRotationZ(T radians)
 		{
-			return Matrix4x4<T>(X - rhs.X, Y - rhs.Y, Z - rhs.Z, W - rhs.W);
+			Matrix4x4<T> retVal;
+			retVal.M00 = Cos(radians);
+			retVal.M01 = Sin(radians);
+			retVal.M10 = -Sin(radians);
+			retVal.M11 = Cos(radians);
+			return retVal;
 		}
 
 		template<typename T>

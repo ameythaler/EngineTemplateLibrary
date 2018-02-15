@@ -141,7 +141,7 @@ namespace SIMDMath
 		return _mm_mul_ps(retVal, negateY);
 	}
 
-	inline Vec4f Vec4fEqualVec(Vec4f lhs, Vec4f rhs)
+	inline Vec4f Vec4fEqualVec(Vec4f lhs, Vec4f rhs) // #TODO use an epsilon
 	{
 		return _mm_cmpeq_ps(lhs, rhs);
 	}

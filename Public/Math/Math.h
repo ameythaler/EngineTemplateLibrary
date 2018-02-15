@@ -102,6 +102,11 @@ namespace Math
 		static const T Two;
 		static const T Four;
 		static const T Epsilon;
+		static const T Pi;
+		static const T Pi2;
+		static const T Pi4;
+		static const T PiOver2;
+		static const T PiOver4;
 		static bool Equal(T lhs, T rhs);
 		static bool NotEqual(T lhs, T rhs);
 	};
@@ -114,6 +119,11 @@ namespace Math
 		static const T Two; \
 		static const T Four; \
 		static const T Epsilon; \
+		static const T Pi; \
+		static const T Pi2; \
+		static const T Pi4; \
+		static const T PiOver2; \
+		static const T PiOver4; \
 		static bool Equal(T lhs, T rhs); \
 		static bool NotEqual(T lhs, T rhs); \
 	}; \
@@ -131,5 +141,10 @@ namespace Math
 	ETL_INTERNAL_EXPLICIT_DEC_SCALAR(uint8);
 
 #undef ETL_INTERNAL_EXPLICIT_DEC_SCALAR
+
+	inline float ToRadians(float degrees) { return degrees * Scalarf::Pi / 180.0f; }
+	inline double ToRadians(double degrees) { return degrees * Scalard::Pi / 180.0; }
+	inline float ToDegrees(float radians) { return radians * 180.0f / Scalarf::Pi; }
+	inline double ToDegrees(double radians) { return radians * 180.0 / Scalard::Pi; }
 }
 }

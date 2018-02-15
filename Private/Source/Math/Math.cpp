@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include "Math/Math.h"
 #include <limits.h>
 
@@ -10,6 +11,11 @@ namespace ETL
 	const T Scalar<T>::Two = two; \
 	const T Scalar<T>::Four = four; \
 	const T Scalar<T>::Epsilon = epsilon; \
+	const T Scalar<T>::Pi = (T)M_PI; \
+	const T Scalar<T>::Pi2 = (T)M_PI * two; \
+	const T Scalar<T>::Pi4 = (T)M_PI * four; \
+	const T Scalar<T>::PiOver2 = (T)M_PI / two; \
+	const T Scalar<T>::PiOver4 = (T)M_PI / four; \
 	bool Scalar<T>::Equal(T rhs, T lhs) \
 	{ \
 		return Abs(rhs - lhs) <= Epsilon; \
