@@ -62,6 +62,7 @@ namespace ETL
 				, T m30 = Scalar<T>::Zero, T m31 = Scalar<T>::Zero, T m32 = Scalar<T>::Zero, T m33 = Scalar<T>::One);
 			Matrix4x4(const Vector4<T>& x, const Vector4<T>& y, const Vector4<T>& z, const Vector4<T>& w);
 			inline Matrix4x4(const T* arrData) { memcpy(Data, arrData, sizeof(T) * 16); }
+			inline Matrix4x4& operator=(const Matrix4x4& rhs) { memcpy(Data, rhs.Data, sizeof(T) * 16); return *this; }
 			inline Matrix4x4& operator=(const T* arrData) { memcpy(Data, arrData, sizeof(T) * 16); return *this; }
 
 			inline bool operator==(const Matrix4x4& rhs) const { return X == rhs.X && Y == rhs.Y && Z == rhs.Z && W == rhs.W; }
@@ -72,6 +73,11 @@ namespace ETL
 			inline Matrix4x4 operator*(T rhs) const { return Matrix4x4(X * rhs, Y * rhs, Z * rhs, W * rhs); }
 			Matrix4x4 operator*(const Matrix4x4& rhs) const;
 			inline Matrix4x4 operator/(T rhs) const { return Matrix4x4(X / rhs, Y / rhs, Z / rhs, W / rhs); }
+			inline Matrix4x4& operator+=(const Matrix4x4& rhs) { X += rhs.X; Y += rhs.Y; Z += rhs.Z; W += rhs.W; return *this; }
+			inline Matrix4x4& operator-=(const Matrix4x4& rhs) { X -= rhs.X; Y -= rhs.Y; Z -= rhs.Z; W -= rhs.W; return *this; }
+			inline Matrix4x4& operator*=(T rhs) { X *= rhs; Y *= rhs; Z *= rhs; W *= rhs; return *this; }
+			Matrix4x4& operator*=(const Matrix4x4& rhs);
+			inline Matrix4x4& operator/=(T rhs) { X /= rhs; Y /= rhs; Z /= rhs; W /= rhs; return *this; }
 
 			inline Matrix4x4 MultiplyComponents(const Matrix4x4& rhs) const { return Matrix4x4(X * rhs.X, Y * rhs.Y, Z * rhs.Z, W * rhs.W); }
 			inline Matrix4x4 DivideComponents(const Matrix4x4& rhs) const { return Matrix4x4(X / rhs.X, Y / rhs.Y, Z / rhs.Z, W / rhs.W); }

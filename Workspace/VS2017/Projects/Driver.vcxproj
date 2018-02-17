@@ -157,6 +157,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Driver\Math.cpp" />
+    <ClCompile Include="..\..\..\Driver\Matrix4x4.cpp" />
     <ClCompile Include="..\..\..\Driver\SIMD.cpp" />
     <ClCompile Include="..\..\..\Driver\Source.cpp" />
     <ClCompile Include="..\..\..\Driver\Types.cpp" />

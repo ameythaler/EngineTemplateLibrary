@@ -26,9 +26,9 @@ namespace ETL
 			, T m20, T m21, T m22, T m23
 			, T m30, T m31, T m32, T m33)
 			: M00(m00), M01(m01), M02(m02), M03(m03)
-			, M10(m00), M11(m01), M12(m02), M13(m03)
-			, M20(m00), M21(m01), M22(m02), M23(m03)
-			, M30(m00), M31(m01), M32(m02), M33(m03)
+			, M10(m10), M11(m11), M12(m12), M13(m13)
+			, M20(m20), M21(m21), M22(m22), M23(m23)
+			, M30(m30), M31(m31), M32(m32), M33(m33)
 		{
 		}
 
@@ -48,6 +48,20 @@ namespace ETL
 		Matrix4x4<T> Matrix4x4<T>::operator*(const Matrix4x4<T>& rhs) const
 		{
 			return Matrix4x4<T>(ETL_INTERNAL_MUL_ROW(X, rhs), ETL_INTERNAL_MUL_ROW(Y, rhs), ETL_INTERNAL_MUL_ROW(Z, rhs), ETL_INTERNAL_MUL_ROW(W, rhs));
+		}
+
+		template<typename T>
+		Matrix4x4<T>& Matrix4x4<T>::operator*=(const Matrix4x4<T>& rhs)
+		{
+			Vector4<T> x = X;
+			Vector4<T> y = Y;
+			Vector4<T> z = Z;
+			Vector4<T> w = W;
+			X = ETL_INTERNAL_MUL_ROW(x, rhs);
+			Y = ETL_INTERNAL_MUL_ROW(y, rhs);
+			Z = ETL_INTERNAL_MUL_ROW(z, rhs);
+			W = ETL_INTERNAL_MUL_ROW(w, rhs);
+			return *this;
 		}
 
 #undef ETL_INTERNAL_MUL_ROW

@@ -35,6 +35,9 @@
     <ClCompile Include="..\..\..\Driver\Vector4.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Driver\Matrix4x4.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Driver\catch.hpp">
