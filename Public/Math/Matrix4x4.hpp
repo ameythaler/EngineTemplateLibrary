@@ -54,6 +54,41 @@ namespace ETL
 #undef ETL_INTERNAL_DOT
 
 		template<typename T>
+		Matrix4x4<T> Matrix4x4<T>::Transposed() const
+		{
+			return Matrix4x4<T>(M00, M10, M20, M30
+				, M01, M11, M21, M31
+				, M02, M12, M22, M32
+				, M03, M13, M23, M33);
+		}
+
+		template<typename T>
+		Matrix4x4<T>& Matrix4x4<T>::Transpose()
+		{
+			std::swap(M01, M10);
+			std::swap(M02, M20);
+			std::swap(M03, M30);
+			std::swap(M12, M21);
+			std::swap(M13, M31);
+			std::swap(M23, M32);
+			return *this;
+		}
+
+		template<typename T>
+		Vector3<T> Matrix4x4<T>::Transform(const Vector3<T>& rhs) const
+		{
+			Vector4<T> v(rhs, 1.0f);
+			Vector4<T> retVal(X.Dot(v), Y.Dot(v), Z.Dot(v), W.Dot(v));
+			return retVal.XYZ / retVal.W;
+		}
+
+		template<typename T>
+		Vector4<T> Matrix4x4<T>::Transform(const Vector4<T>& rhs) const
+		{
+			return Vector4<T>(X.Dot(rhs), Y.Dot(rhs), Z.Dot(rhs), W.Dot(rhs));
+		}
+
+		template<typename T>
 		Matrix4x4<T> Matrix4x4<T>::MakeTranslation(const Vector3<T>& translation)
 		{
 			Matrix4x4<T> retVal;

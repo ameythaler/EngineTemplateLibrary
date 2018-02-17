@@ -76,6 +76,12 @@ namespace ETL
 			inline Matrix4x4 MultiplyComponents(const Matrix4x4& rhs) const { return Matrix4x4(X * rhs.X, Y * rhs.Y, Z * rhs.Z, W * rhs.W); }
 			inline Matrix4x4 DivideComponents(const Matrix4x4& rhs) const { return Matrix4x4(X / rhs.X, Y / rhs.Y, Z / rhs.Z, W / rhs.W); }
 
+			Matrix4x4 Transposed() const;
+			Matrix4x4& Transpose();
+
+			Vector3<T> Transform(const Vector3<T>& rhs) const;
+			Vector4<T> Transform(const Vector4<T>& rhs) const;
+
 			static Matrix4x4 MakeTranslation(const Vector3<T>& translation);
 			static Matrix4x4 MakeRotationX(T radians);
 			static Matrix4x4 MakeRotationY(T radians);
