@@ -45,10 +45,19 @@ namespace ETL
 				};
 				struct  
 				{
+#if ETL_D3D_MATRIX
+					// Row Major
 					T M00, M01, M02, M03;
 					T M10, M11, M12, M13;
 					T M20, M21, M22, M23;
 					T M30, M31, M32, M33;
+#else // ETL_D3D_MATRIX
+					// Column Major
+					T M00, M10, M20, M30;
+					T M01, M11, M21, M31;
+					T M02, M12, M22, M32;
+					T M03, M13, M23, M33;
+#endif // ETL_D3D_MATRIX
 				};
 			};
 
@@ -56,10 +65,18 @@ namespace ETL
 			static const Matrix4x4 One;
 			static const Matrix4x4 Identity;
 
-			Matrix4x4(T m00 = Scalar<T>::One, T m01 = Scalar<T>::Zero, T m02 = Scalar<T>::Zero, T m03 = Scalar<T>::Zero
-				, T m10 = Scalar<T>::Zero, T m11 = Scalar<T>::One, T m12 = Scalar<T>::Zero, T m13 = Scalar<T>::Zero
-				, T m20 = Scalar<T>::Zero, T m21 = Scalar<T>::Zero, T m22 = Scalar<T>::One, T m23 = Scalar<T>::Zero
-				, T m30 = Scalar<T>::Zero, T m31 = Scalar<T>::Zero, T m32 = Scalar<T>::Zero, T m33 = Scalar<T>::One);
+#if ETL_D3D_MATRIX
+			Matrix4x4(T m00, T m01, T m02, T m03
+					, T m10, T m11, T m12, T m13
+					, T m20, T m21, T m22, T m23
+					, T m30, T m31, T m32, T m33);
+#else // ETL_D3D_MATRIX
+			Matrix4x4(T m00, T m10, T m20, T m30
+					, T m01, T m11, T m21, T m31
+					, T m02, T m12, T m22, T m32
+					, T m03, T m13, T m23, T m33);
+#endif // ETL_D3D_MATRIX
+			Matrix4x4(T xDiag = Scalar<T>::One, T yDiag = Scalar<T>::One, T zDiag = Scalar<T>::One, T wDiag = Scalar<T>::One, T fill = Scalar<T>::Zero);
 			Matrix4x4(const Vector4<T>& x, const Vector4<T>& y, const Vector4<T>& z, const Vector4<T>& w);
 			inline Matrix4x4(const T* arrData) { memcpy(Data, arrData, sizeof(T) * 16); }
 			inline Matrix4x4& operator=(const Matrix4x4& rhs) { memcpy(Data, rhs.Data, sizeof(T) * 16); return *this; }
@@ -89,9 +106,13 @@ namespace ETL
 			Vector4<T> Transform(const Vector4<T>& rhs) const;
 
 			static Matrix4x4 MakeTranslation(const Vector3<T>& translation);
+			static Matrix4x4 MakeTranslation(T x, T y, T z);
 			static Matrix4x4 MakeRotationX(T radians);
 			static Matrix4x4 MakeRotationY(T radians);
 			static Matrix4x4 MakeRotationZ(T radians);
+			static Matrix4x4 MakeScale(T scale);
+			static Matrix4x4 MakeScale(const Vector3<T>& scale);
+			static Matrix4x4 MakeScale(T x, T y, T z);
 
 			operator WideString() const;
 			friend WideOStream& operator<< <> (WideOStream& out, const Matrix4x4<T>& mat);

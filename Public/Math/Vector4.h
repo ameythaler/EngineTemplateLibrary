@@ -54,7 +54,7 @@ namespace ETL
 			static const Vector4 ZAxis;
 
 			Vector4(T x = Scalar<T>::Zero, T y = Scalar<T>::Zero, T z = Scalar<T>::Zero, T w = Scalar<T>::Zero) : X(x), Y(y), Z(z), W(w) { }
-			Vector4(const Vector3<T>& xyz, T w = Scalar<T>::One) : XYZ(xyz), W(w) { }
+			Vector4(const Vector3<T>& xyz, T w = Scalar<T>::One) : X(xyz.X), Y(xyz.Y), Z(xyz.Z), W(w) { }
 			Vector4(const T* arrData);
 			Vector4& operator=(const Vector4& rhs);
 			Vector4& operator=(const T* arrData);
