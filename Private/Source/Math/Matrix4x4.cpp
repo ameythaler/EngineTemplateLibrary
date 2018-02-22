@@ -4,26 +4,13 @@ namespace ETL
 {
 	namespace Math
 	{
-#define ETL_INTERNAL_EXPLICIT_INST_DEF(T) template struct Matrix4x4<T>
+#define ETL_INTERNAL_EXPLICIT_INST_DEF(T, layout) template struct Matrix4x4<T, layout>
 
-		ETL_INTERNAL_EXPLICIT_INST_DEF(float);
-		ETL_INTERNAL_EXPLICIT_INST_DEF(double);
+		ETL_INTERNAL_EXPLICIT_INST_DEF(float, ETL_MATRIX_LAYOUT_COLUMN_MAJOR);
+		ETL_INTERNAL_EXPLICIT_INST_DEF(double, ETL_MATRIX_LAYOUT_COLUMN_MAJOR);
+		ETL_INTERNAL_EXPLICIT_INST_DEF(float, ETL_MATRIX_LAYOUT_ROW_MAJOR);
+		ETL_INTERNAL_EXPLICIT_INST_DEF(double, ETL_MATRIX_LAYOUT_ROW_MAJOR);
 
 #undef ETL_INTERNAL_EXPLICIT_INST_DEF
-
-		// #TODO Not sure these are needed
-		template<>
-		MbOStream& operator<<(MbOStream& out, const Matrix4x4<uint8>& mat)
-		{
-			out << "[" << mat.X << ", " << mat.Y << ", " << mat.Z << ", " << mat.W << "]";
-			return out;
-		}
-
-		template<>
-		MbOStream& operator<<(MbOStream& out, const Matrix4x4<int8>& mat)
-		{
-			out << "[" << mat.X << ", " << mat.Y << ", " << mat.Z << ", " << mat.W << "]";
-			return out;
-		}
 	}
 }

@@ -1,5 +1,7 @@
 #include "catch.hpp"
+#include "Utility/Platform.h"
 #include "Math/Math.h"
+#define ETL_MATRIX_LAYOUT ETL_MATRIX_LAYOUT_GL
 #include "Math/Matrix4x4.h"
 
 using namespace ETL::Math;
@@ -19,11 +21,11 @@ SCENARIO("matrix4x4 float math produces correct results", "[matrix4x4f]")
 		const float kAdd = 1.0f, kMul = 3.0f;
 
 		Matrix4x4f a;
-#if ETL_D3D_MATRIX
+#if ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 		Matrix4x4f b(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33);
-#else // ETL_D3D_MATRIX
+#else // ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 		Matrix4x4f b(m00, m10, m20, m30, m01, m11, m21, m31, m02, m12, m22, m32, m03, m13, m23, m33);
-#endif // ETL_D3D_MATRIX
+#endif // ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 		Matrix4x4f c(b);
 
 		REQUIRE(a == Matrix4x4f::Identity);
@@ -92,17 +94,17 @@ SCENARIO("matrix4x4 float math produces correct results", "[matrix4x4f]")
 
 		WHEN("matrix-matrix multiplication is performed")
 		{
-#if ETL_D3D_MATRIX
+#if ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 			Vector4f c0(m00, m10, m20, m30);
 			Vector4f c1(m01, m11, m21, m31);
 			Vector4f c2(m02, m12, m22, m32);
 			Vector4f c3(m03, m13, m23, m33);
-#else // ETL_D3D_MATRIX
+#else // ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 			Vector4f c0(m00, m01, m02, m03);
 			Vector4f c1(m10, m11, m12, m13);
 			Vector4f c2(m20, m21, m22, m23);
 			Vector4f c3(m30, m31, m32, m33);
-#endif // ETL_D3D_MATRIX
+#endif // ETL_MATRIX_LAYOUT == ETL_MATRIX_LAYOUT_ROW_MAJOR
 
 			Matrix4x4f d(b.X.Dot(c0), b.X.Dot(c1), b.X.Dot(c2), b.X.Dot(c3)
 				, b.Y.Dot(c0), b.Y.Dot(c1), b.Y.Dot(c2), b.Y.Dot(c3)

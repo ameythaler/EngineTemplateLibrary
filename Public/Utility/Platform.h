@@ -100,6 +100,11 @@
 #define ETL_UNICODE 1
 #endif
 
+#define ETL_MATRIX_LAYOUT_GL 0
+#define ETL_MATRIX_LAYOUT_COLUMN_MAJOR 0
+#define ETL_MATRIX_LAYOUT_D3D 1
+#define ETL_MATRIX_LAYOUT_ROW_MAJOR 1
+
 #if _MSC_VER
 #pragma warning(default: 4005)
 #endif
